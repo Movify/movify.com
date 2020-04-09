@@ -1,0 +1,27 @@
+<footer class="c-footer u-mode-negative">
+  <div class="container c-footer__container">
+    <div class="c-footer-col">
+      <div class="c-footer__logo">
+        {{informations.footerLogo | raw}}
+      </div>
+    </div>
+    <div class="c-footer-col">
+      <div class="c-footer__legal">
+        {{informations.footerLegal |replace('year', "now"|date("Y"))|raw}}
+      </div>
+    </div>
+    <div class="c-footer-col">
+      <div class="c-footer__hr">
+      </div>
+      <ul class="c-footer__social">
+        {% for row in informations.social.all() %}
+            <li class="c-footer__social__item">
+              <a href="{{ row.socialUrl }}" target="_blank">
+                <span class="icon-movify-iconfont-{{ row.socialIcon }}"></span>
+              </a>
+            </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</footer>

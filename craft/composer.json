@@ -1,0 +1,36 @@
+{
+  "require": {
+    "anubarak/craft-relabel": "1.3.4",
+    "craftcms/cms": "3.4.8",
+    "craftcms/contact-form": "2.2.6",
+    "craftcms/redactor": "2.6.0.1",
+    "dgrigg/craft-migration-assistant": "3.1.6",
+    "nerds-and-company/schematic": "4.1.1",
+    "rias/craft-position-fieldtype": "1.0.14",
+    "sebastianlenz/linkfield": "1.0.20",
+    "selvinortiz/patrol": "3.1.3",
+    "solspace/craft-freeform": "3.6.4",
+    "spicyweb/craft-neo": "2.6.1",
+    "verbb/field-manager": "2.1.1",
+    "verbb/navigation": "1.3.5",
+    "verbb/super-table": "2.4.4",
+    "vlucas/phpdotenv": "^3.4.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "modules\\": "modules/"
+    }
+  },
+  "config": {
+    "sort-packages": true,
+    "optimize-autoloader": true,
+    "platform": {
+      "php": "7.0"
+    }
+  },
+  "scripts": {
+    "post-root-package-install": [
+      "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+    ]
+  }
+}

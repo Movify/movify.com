@@ -1,0 +1,45 @@
+/* ==========================================================================
+   Forms/file
+   ========================================================================== */
+
+
+.#{$prefix}-file{
+  margin-bottom: 0rem;
+  overflow: hidden;
+}
+
+input[type="file"] {
+  @include rfs(1.2rem);
+  font-weight: 700;
+  color: $c-brand2;
+  background: $c-white;
+  display: block;
+  padding: 1.5rem 2.5rem;
+  border-radius: $border-radius-2;
+  box-shadow: 0 .55rem 1rem 0 rgba(0, 0, 0, 0.2);
+  transition: $default-transition;
+  cursor: pointer;
+}
+
+
+input[type="file"]:focus,
+input[type="file"]:hover {
+   color: $c-white;
+   background: $c-brand2;
+   outline: none;
+}
+
+
+
+.#{$prefix}-file-response{
+  @include rfs(1.5rem);
+  float: left;
+  margin-left: 2rem;
+  margin-bottom: 1.5rem;
+  width:60%;
+  li{
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow:hidden;
+  }
+}

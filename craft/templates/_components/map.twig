@@ -1,0 +1,29 @@
+
+{# Default #}
+
+{% set defaults = {
+  items: '',
+} %}
+
+{# -- Merge Default with Options -- #}
+{% set options = options ? defaults|merge(options) : defaults %}
+
+
+<div class="c-map c-map--group">
+  <div class="container">
+    <div class="col-12">
+      {% for block in options.items.all() %}
+        <ul class="c-map__list">
+          {% for row in block.place.all() %}
+            <li data-map-long="{{row.longitude}}" data-map-lat="{{row.latitude}}" data-map-name="{{row.placeName}}">
+              {{row.placeFlag}} {{row.placeName}}
+            </li>
+          {% endfor %}
+        </ul>
+      {% endfor %}
+    </div>
+  </div>
+  <div class="c-map__map" id="map"></div>
+</div>
+
+{% set options = null %}

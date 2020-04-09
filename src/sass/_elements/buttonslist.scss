@@ -1,0 +1,49 @@
+/* ==========================================================================
+   Buttonslist
+   ========================================================================== */
+
+$prefix: $element;
+
+.#{$prefix}-btn-list{
+  list-style: none;
+  overflow: hidden;
+  padding-left: 0;
+}
+
+.#{$prefix}-btn-list__item{
+  margin-bottom: 1rem;
+}
+
+.#{$prefix}-btn-list__btn{
+  @include link-reset;
+  padding: 2rem 2rem;
+  background: $c-brand2;
+  border-radius: $border-radius-2;
+  color:$c-white;
+  display: inline-block;
+  transition: $default-transition;
+  i{
+    margin-left: 1rem;
+    @include rfs(1.8rem)
+  }
+  &:hover{
+      box-shadow: 0 .5rem 1rem 0 rgba($c-brand2, 0.4);
+      color:$c-white;
+  }
+}
+
+
+@include media-breakpoint-up(md){
+
+.#{$prefix}-btn-list__item{
+  float: left;
+  margin-left: 1rem;
+  margin-bottom: 1rem;
+}
+
+.#{$prefix}-btn-list li:first-child{
+  margin-left:0;
+}
+
+
+}

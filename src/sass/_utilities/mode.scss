@@ -1,0 +1,23 @@
+/* ==========================================================================
+   Mode
+   ========================================================================== */
+
+
+$prefix: $utility;
+
+.#{$negative}{
+
+h1, h2, h3, h4, h5, p, span, ul, ol{
+  color:$c-white;
+}
+
+.#{$element}-btn{
+  background: $c-brand1;
+  color: $c-white;
+  &:hover{
+    background: $c-brand1;
+    color: $c-gray5;
+  }
+}
+
+}

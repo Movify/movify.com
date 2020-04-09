@@ -1,0 +1,64 @@
+/* ==========================================================================
+   Text
+   ========================================================================== */
+
+$prefix: $utility;
+
+// COLORS
+
+.#{$prefix}-text-black{
+ color: $c-black !important;
+}
+.#{$prefix}-text-white{
+ color: $c-white !important;
+}
+
+.#{$prefix}-text-brand-1{
+ color: $c-brand1 !important;
+}
+.#{$prefix}-text-brand-2{
+ color: $c-brand2 !important;
+}
+
+.#{$prefix}-text-gray1{
+  color: $c-gray1 !important;
+}
+.#{$prefix}-text-gray2{
+  color: $c-gray2 !important;
+}
+.#{$prefix}-text-gray3{
+  color: $c-gray3 !important;
+}
+.#{$prefix}-text-gray4{
+  color: $c-gray4 !important;
+}
+.#{$prefix}-text-gray5{
+  color: $c-gray5 !important;
+}
+
+.#{$prefix}-text-alert{
+  color: $c-alert !important;
+}
+.#{$prefix}-text-success{
+  color: $c-success;
+}
+
+
+
+
+// ALIGNMENT
+
+$text-aligns: (left, right, center);
+@each $align in $text-aligns {
+ .#{$prefix}-text-#{$align}{
+   text-align: #{$align};
+ }
+}
+
+
+
+// SETTINGS
+
+.u-text-no-baseline{
+  margin-bottom: 0px;
+}

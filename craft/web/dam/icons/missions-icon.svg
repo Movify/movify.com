@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="86px" height="86px" viewBox="0 0 86 86">
+  <!-- Generator: Sketch 58 (84663) - https://sketch.com -->
+  <title>TARGET_drawing</title>
+  <desc>Created with Sketch.</desc>
+  <g id="FINAL" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+    <g id="1440_Homepage_2" transform="translate(-1133.000000, -6770.000000)">
+      <g id="MOVIFY-IN-NUMBERS" transform="translate(0.000000, 6444.000000)">
+        <g id="ACTIVE-MISSION" transform="translate(1099.000000, 326.000000)">
+          <g id="TARGET_drawing" transform="translate(34.000000, 0.000000)">
+            <g id="TARGET-ICON-">
+              <path d="M86,43 C86,66.748298 66.7483894,86 43.0002041,86 C19.2520189,86 0,66.748298 0,43 C0,19.251702 19.2520189,0 43.0002041,0 C66.7483894,0 86,19.251702 86,43" id="Fill-4" fill="#E6332A"></path>
+              <path d="M70.0740741,43 C70.0740741,57.9526321 57.9526896,70.0740741 43.0001285,70.0740741 C28.0475675,70.0740741 15.9259259,57.9526321 15.9259259,43 C15.9259259,28.0473679 28.0475675,15.9259259 43.0001285,15.9259259 C57.9526896,15.9259259 70.0740741,28.0473679 70.0740741,43" id="Fill-4" fill="#252739"></path>
+              <path d="M53.0864198,43 C53.0864198,48.5705884 48.5706099,53.0864198 43.0000479,53.0864198 C37.4294859,53.0864198 32.9135802,48.5705884 32.9135802,43 C32.9135802,37.4294116 37.4294859,32.9135802 43.0000479,32.9135802 C48.5706099,32.9135802 53.0864198,37.4294116 53.0864198,43" id="Fill-4" fill="#FFFFFF"></path>
+            </g>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

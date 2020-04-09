@@ -1,0 +1,67 @@
+/* ==========================================================================
+   FONTS
+   ========================================================================== */
+
+@font-face {
+   font-family: 'Mark OT';
+   src: url('../fonts/MarkOT-Bold.woff2') format('woff2'),
+       url('../fonts/MarkOT-Bold.woff') format('woff');
+   font-weight: bold;
+   font-style: normal;
+}
+
+@font-face {
+   font-family: 'Mark OT';
+   src: url('../fonts/MarkOT-Italic.woff2') format('woff2'),
+       url('../fonts/MarkOT-Italic.woff') format('woff');
+   font-weight: normal;
+   font-style: italic;
+}
+
+@font-face {
+   font-family: 'Mark OT';
+   src: url('../fonts/MarkOT-Light.woff2') format('woff2'),
+       url('../fonts/MarkOT-Light.woff') format('woff');
+   font-weight: 300;
+   font-style: normal;
+}
+
+@font-face {
+   font-family: 'Mark OT';
+   src: url('../fonts/MarkOT-LightItalic.woff2') format('woff2'),
+       url('../fonts/MarkOT-LightItalic.woff') format('woff');
+   font-weight: 300;
+   font-style: italic;
+}
+
+@font-face {
+   font-family: 'Mark OT';
+   src: url('../fonts/MarkOT-BoldItalic.woff2') format('woff2'),
+       url('../fonts/MarkOT-BoldItalic.woff') format('woff');
+   font-weight: bold;
+   font-style: italic;
+}
+
+@font-face {
+   font-family: 'Mark OT';
+   src: url('../fonts/MarkOT.woff2') format('woff2'),
+       url('../fonts/MarkOT.woff') format('woff');
+   font-weight: normal;
+   font-style: normal;
+}
+
+@font-face {
+   font-family: 'Mark OT';
+   src: url('../fonts/MarkOT-MediumItalic.woff2') format('woff2'),
+       url('../fonts/MarkOT-MediumItalic.woff') format('woff');
+   font-weight: 500;
+   font-style: italic;
+}
+
+@font-face {
+   font-family: 'Mark OT';
+   src: url('../fonts/MarkOT-Medium.woff2') format('woff2'),
+       url('../fonts/MarkOT-Medium.woff') format('woff');
+   font-weight: 500;
+   font-style: normal;
+}

@@ -1,0 +1,49 @@
+/* ==========================================================================
+   Bloc
+   ========================================================================== */
+
+$prefix: $element ;
+
+$spacer-amounts-sm: (
+  1: 1rem,
+  2: 2rem,
+  3: 3rem,
+  4: 5rem,
+  section: 6rem,
+);
+$spacer-amounts-md: (
+  1: 2rem,
+  2: 3rem,
+  3: 4rem,
+  4: 8rem,
+  section: 8rem,
+);
+$spacer-amounts-lg: (
+  1: 2rem,
+  2: 4rem,
+  3: 6rem,
+  4: 10rem,
+  section: 8rem,
+);
+
+@each $variant, $space in $spacer-amounts-sm{
+  .#{$prefix}-spacer-#{$variant}{
+    height: #{$space};
+  }
+}
+
+@include media-breakpoint-up(md){
+  @each $variant, $space in $spacer-amounts-md{
+    .#{$prefix}-spacer-#{$variant}{
+      height: #{$space};
+    }
+  }
+}
+
+@include media-breakpoint-up(lg){
+  @each $variant, $space in $spacer-amounts-lg{
+    .#{$prefix}-spacer-#{$variant}{
+      height: #{$space};
+    }
+  }
+}

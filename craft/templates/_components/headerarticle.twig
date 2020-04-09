@@ -1,0 +1,75 @@
+
+{# Default #}
+
+{% set defaults = {
+  title:entry.title,
+	date:'dzedze',
+  author:'dzedez',
+  category:'dzedze',
+	background:entry.blogCover,
+} %}
+
+{# -- Merge Default with Options -- #}
+{% set options = options ? defaults|merge(options) : defaults %}
+
+{% set transformLarge = {
+  mode: 'crop',
+  width: 2650,
+  height: 800,
+  quality: 90,
+  position: 'focalPoint'
+} %}
+{% set transformMedium = {
+  mode: 'crop',
+  width: 1024,
+  height: 400,
+  quality: 90,
+  position: 'focalPoint'
+} %}
+{% set transformSmall = {
+  mode: 'crop',
+  width: 640,
+  height: 900,
+  quality: 90,
+  position: 'focalPoint'
+} %}
+{% set image = options.background.one() %}
+{% if image %}
+    {% set headerBackgroundLarge = image.getUrl(transformLarge) %}
+    {% set headerBackgroundMedium = image.getUrl(transformMedium) %}
+    {% set headerBackgroundSmall = image.getUrl(transformSmall) %}
+{% endif %}
+
+<div class="c-header-content c-header-content--article u-bg-cc u-bg-cover u-under-header u-mode-negative lazyload"
+{% if options.background is not empty %}
+ data-bgset="{{headerBackgroundSmall}} [--small] | {{headerBackgroundMedium}} [--medium] | {{headerBackgroundLarge}}"
+{% endif %}>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-8 col-lg-6">
+        <div class="c-header-content__content">
+          <h1>
+            {{options.title}}
+          </h1>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="c-header-content__article-infos">
+    <div class="c-header-content__article-info">
+      <span>Date</span>
+      <p>{{options.date}}</p>
+    </div>
+    <div class="c-header-content__article-author">
+      <span>Author</span>
+      <p>{{options.author}}</p>
+    </div>
+    <div class="c-header-content__article-category">
+      <span>Category</span>
+      <p>{{options.category}}</p>
+    </div>
+  </div>
+</div>
+
+
+{% set options = null %}

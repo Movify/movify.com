@@ -1,0 +1,93 @@
+
+
+
+{% if headerHome == false %}
+<header class="l-header" aria-label="Site heading">
+  <div data-sticky="true" class="c-navbar
+  {% if header == 'transparent' %} c-navbar--transparent{% endif %}{% if header == 'red' %} c-navbar--red{% endif %}{% if header == 'blue' %}c-navbar--blue{% endif %}">
+    <div class="c-navbar__container container">
+      <div class="c-navbar__logo">
+        <a href="/" title="Back home">
+          {{ informations.logoHeader | raw }}
+        </a>
+      </div>
+      <nav class="c-navbar__menu" role="navigation">
+        <div class="d-none d-md-block">
+          {{ craft.navigation.render('header', {
+              ulClass: 'c-navbar__menu__items',
+              liClass: 'c-navbar__menu__item',
+              aClass: 'c-navbar__menu__link',
+              activeClass: 'c-navbar__menu__link--active',
+          }) }}
+        </div>
+        <div class="d-md-none">
+          {{ craft.navigation.render('headerMobile', {
+              ulClass: 'c-navbar__menu__items',
+              liClass: 'c-navbar__menu__item',
+              aClass: 'c-navbar__menu__link',
+              activeClass: 'c-navbar__menu__link--active',
+          }) }}
+        </div>
+        <div class="c-navbar__menu__decoration" aria-hidden=”true”>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </nav>
+      <label class="c-navbar__burger" aria-hidden="true">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
+    </div>
+  </div>
+</header>
+{% endif %}
+
+{% if headerHome == true %}
+
+<header class="l-header" aria-label="Site heading">
+  <div data-timing-appear="3500" data-sticky="true" class="c-navbar
+  {% if header == 'transparent' %} c-navbar--transparent{% endif %} c-navbar--hide">
+    <div class="c-navbar__container container">
+      <div class="c-navbar__logo">
+        <a href="/" title="Back home">
+          {{ informations.logoHeader | raw }}
+        </a>
+      </div>
+      <nav class="c-navbar__menu" role="navigation">
+        <div class="d-none d-md-block">
+          {{ craft.navigation.render('header', {
+              ulClass: 'c-navbar__menu__items',
+              liClass: 'c-navbar__menu__item',
+              aClass: 'c-navbar__menu__link',
+              activeClass: 'c-navbar__menu__link--active',
+          }) }}
+        </div>
+        <div class="d-md-none">
+          {{ craft.navigation.render('headerMobile', {
+              ulClass: 'c-navbar__menu__items',
+              liClass: 'c-navbar__menu__item',
+              aClass: 'c-navbar__menu__link',
+              activeClass: 'c-navbar__menu__link--active',
+          }) }}
+        </div>
+        <div class="c-navbar__menu__decoration" aria-hidden=”true”>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </nav>
+      <label class="c-navbar__burger" aria-hidden="true">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
+    </div>
+  </div>
+</header>
+
+
+{% endif %}

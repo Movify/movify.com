@@ -1,0 +1,55 @@
+
+{# Default #}
+
+{% set defaults = {
+  title: 'title',
+  partner:'',
+  partnerMobile:'',
+} %}
+
+{# -- Merge Default with Options -- #}
+{% set options = options ? defaults|merge(options) : defaults %}
+
+<div class="c-partners">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <h2>
+          {{options.title}}
+        </h2>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        {% set relatedEntries = options.partners.all() %}
+          {% if relatedEntries|length %}
+            {% for rel in relatedEntries %}
+            <div class="col-4 col-md-3 align-self-center d-none d-md-block">
+              {% set image = rel.partnerLogo.one() %}
+              {% if image %}
+                  {% set partenerLogo = image.url %}
+                  <img src="{{partenerLogo}}" alt="">
+              {% endif %}
+            </div>
+            {% endfor %}
+        {% endif %}
+        {% set relatedEntries = options.partnersMobile.all() %}
+          {% if relatedEntries|length %}
+            {% for rel in relatedEntries %}
+            <div class="col-4 col-md-3 align-self-center d-md-none">
+              {% set image = rel.partnerLogo.one() %}
+              {% if image %}
+                  {% set partenerLogo = image.url %}
+                  <img src="{{partenerLogo}}" alt="">
+              {% endif %}
+            </div>
+            {% endfor %}
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+{% set options = null %}

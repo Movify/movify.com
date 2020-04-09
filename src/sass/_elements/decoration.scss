@@ -1,0 +1,47 @@
+/* ==========================================================================
+   Decoration
+   ========================================================================== */
+
+$prefix: $element;
+
+
+.decoration__section{
+  position: relative;
+}
+.decoration__section:nth-child(odd){
+  z-index: 0;
+}
+.decoration__section:nth-child(even){
+  z-index: 1;
+}
+
+// MEDIUM-UP
+
+
+.#{$prefix}-decoration{
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  display: block;
+  pointer-events: none;
+  z-index: 0;
+  &__element{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    img{
+      position: absolute;
+    }
+  }
+  &__animation{
+    position: absolute;
+  }
+  &__element--container{
+    max-width: $container-width;
+    padding: 0 $gutter;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}

@@ -1,0 +1,28 @@
+
+{# Default #}
+
+{% set defaults = {
+  title:'Our values',
+  subtitle:'From a fertile home ground to a unique crafted future',
+  content:'',
+  gridding: 'col-12 col-md-6 col-lg-4',
+} %}
+
+{# -- Merge Default with Options -- #}
+{% set options = options ? defaults|merge(options) : defaults %}
+
+<div class="">
+  <div class="container">
+    <div class="row">
+      <div class="{{options.gridding}}">
+        <p class="subtitle-top">{{options.subtitle}}</p>
+        <h2>
+          {{options.title}}
+        </h2>
+        {{options.content}}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% set options = null %}

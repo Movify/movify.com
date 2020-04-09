@@ -1,0 +1,81 @@
+
+{# Default #}
+
+{% set defaults = {
+  content:'We draw you into our story, a seamless extension of your own. Our readiness for the future means we are confident in our ability to make',
+  position:'right',
+  items:'',
+  target: false,
+} %}
+
+{# -- Merge Default with Options -- #}
+{% set options = options ? defaults|merge(options) : defaults %}
+
+
+{% if options.position == 'left' %}
+  {% set contentGrid = 'col-12 col-md-6 col-lg-4' %}
+  {% set contentClass = 'c-slidercard--content c-slidercard--content-left' %}
+{% endif %}
+
+{% if options.position == 'right' %}
+  {% set contentGrid = 'col-12 col-md-6 col-lg-4' %}
+  {% set contentClass = 'c-slidercard--content c-slidercard--content-right' %}
+{% endif %}
+
+{% if options.position == 'last' %}
+  {% set contentGrid = 'col-12 col-md-6 col-lg-4' %}
+  {% set contentClass = 'c-slidercard--content c-slidercard--content-last' %}
+{% endif %}
+
+
+<div class="c-slidercard {{contentClass}}">
+  <div class="row">
+    {% if options.position %}
+      <div class="{{contentGrid}}">
+        <div class="c-slidercard__content">
+          {{options.content}}
+        </div>
+        <div class="c-slidercard__decoration"></div>
+      </div>
+    {% endif %}
+    <div class="col-12">
+      <div class="c-slidercard">
+        <div class="c-slidercard__controller">
+          <div class="c-slidercard__numbering">
+            {# <span>04</span> /
+            <span>16</span> #}
+          </div>
+          <div class="c-slidercard__arrows">
+            <div class="c-slidercard__arrow c-slidercard__arrow--left">
+              <span class="icon-movify-iconfont-arrowleftslider"></span>
+            </div>
+            <div class="c-slidercard__arrow c-slidercard__arrow--right">
+              <span class="icon-movify-iconfont-arrowrightslider"></span>
+            </div>
+          </div>
+        </div>
+        <div class="owl-carousel">
+          {% for entry in options.items %}
+            <div class="item">
+              {# card #}
+              {% set memberPosition = entry.memberPosition.all() %}
+              {% set position = '' %}
+              {% for rel in memberPosition %}
+                {% set position = rel.title %}
+              {% endfor %}
+              {% set cardOptions = {
+                name: entry.memberName,
+                position: position,
+                image: entry.memberImage.one(),
+                type: 'profile',
+              } %}
+              {% include '_elements/card.twig' with { options: cardOptions } %}
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% set options = null %}

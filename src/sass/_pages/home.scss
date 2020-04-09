@@ -1,0 +1,45 @@
+/* ==========================================================================
+   Home
+   ========================================================================== */
+
+$prefix:#{$page}+'-home';
+
+
+
+// QUOTE
+
+.#{$prefix}-quote{
+  background: $c-gray1;
+  p{
+    @include responsive-font-size(3.5rem);
+    color:$c-black;
+    font-weight: 800;
+  }
+}
+
+.#{$prefix}-quote__decoration-left{
+  display: none;
+}
+.#{$prefix}-quote__decoration-right{
+  display: none;
+}
+
+
+// LOADER
+
+
+
+
+// MEDIUM-UP
+
+@include media-breakpoint-up(md){
+
+
+.#{$prefix}-quote{
+  background: $c-brand2;
+  p{
+    color:$c-white;
+  }
+}
+
+}

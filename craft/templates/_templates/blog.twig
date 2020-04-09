@@ -1,0 +1,55 @@
+
+
+{% set transformImageLarge = {
+  mode: 'crop',
+  width: 1920,
+  height: 800,
+  quality: 90,
+  position: 'focalPoint'
+} %}
+
+
+
+{% for block in entry.blog.level(1).all() %}
+{% switch block.type.handle %}
+
+
+{% case 'editor' %}
+<div class="col-12 col-md-8">
+  {{block.editor}}
+</div>
+
+{% case 'images' %}
+<div class="col-12 col-md-6">
+  {% set images = block.images.all() %}
+  <div class="p-article-images">
+  {% for image in images %}
+      {% set headerBackgroundLarge = image.url %}
+      <div class="p-article-image">
+        <img src="{{headerBackgroundLarge}}" alt="">
+      </div>
+  {% endfor %}
+  </div>
+</div>
+
+{% case 'pdf' %}
+
+<div class="col-12 col-md-10">
+  <div class="e-spacer-2"></div>
+  {% set pdf = block.pdf.one() %}
+  {% if pdf %}
+      {% set pdfUrl = pdf.url %}
+      {% set pdfNameLower = pdf | lower %}
+      {% set pdfName = pdfNameLower | replace({' ': ''}) %}
+  {% endif %}
+  <object
+    data="{{pdfUrl}}"
+    type="application/pdf"
+    class="e-pdf"
+    >
+  </object>
+  <div class="e-spacer-2"></div>
+</div>
+
+{% endswitch %}
+{% endfor %}

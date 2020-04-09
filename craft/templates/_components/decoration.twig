@@ -1,0 +1,38 @@
+
+{# Default #}
+
+{% set defaults = {
+  template: '1',
+} %}
+
+{# -- Merge Default with Options -- #}
+{% set options = options ? defaults|merge(options) : defaults %}
+
+{% set relatedEntries = options.template.all() %}
+{% if relatedEntries|length %}
+    {% for block in relatedEntries %}
+      {% for block in block.decoration.all() %}
+        {% if block.type == "decoration" %}
+          {# decoration #}
+          {% set decorationOptions = {
+            position: block.position,
+            container: block.container,
+            visibility: block.visibility,
+            visual: block.visual,
+          } %}
+          {% include '_elements/decoration.twig' with { options: decorationOptions } %}
+        {% elseif block.type == "decorationAnimation" %}
+          {# decoration #}
+          {% set decorationOptions = {
+            parameters: block.parameters,
+            container: block.container,
+            visibility: block.visibility,
+            animation: block.animation,
+          } %}
+          {% include '_elements/decorationanimation.twig' with { options: decorationOptions } %}
+        {% endif %}
+      {% endfor %}
+    {% endfor %}
+{% endif %}
+
+{% set options = null %}

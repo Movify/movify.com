@@ -1,0 +1,64 @@
+/* ==========================================================================
+   header-numbers Numbers
+   ========================================================================== */
+
+$prefix:$component;
+
+
+.#{$prefix}-header-numbers{
+  position: relative;
+  h1{
+    text-align: center;
+    color:$c-white;
+    @include rfs(3.5rem);
+  }
+  &::after{
+    content:"";
+    position: absolute;
+    top:0;
+    left:0;
+    height: 100%;
+    width: 100%;
+    background: $c-brand2;
+    z-index: 0;
+    opacity: .8;
+    overflow: hidden;
+  }
+}
+
+.#{$prefix}-header-numbers__container{
+  padding-top: 8rem;
+  padding-bottom: 6rem;
+  z-index: 999;
+}
+
+.#{$prefix}-header-numbers__number{
+  text-align: center;
+  h2{
+    color:$c-brand1;
+    margin-bottom: 0;
+    @include rfs(7rem);
+  }
+  p{
+    color:$c-white;
+  }
+}
+
+
+// MEDIUM-UP
+
+@include media-breakpoint-up(md){
+
+.#{$prefix}-header-numbers__container{
+  height: auto;
+}
+
+}
+
+// LARGE-UP
+
+@include media-breakpoint-up(lg){
+
+
+
+}

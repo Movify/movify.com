@@ -1,0 +1,44 @@
+
+{# Default #}
+
+{% set defaults = {
+  title:'',
+  items:'',
+} %}
+
+{# -- Merge Default with Options -- #}
+{% set options = options ? defaults|merge(options) : defaults %}
+
+<div class="c-slidercontent">
+  <div class="row">
+    {% if options.title == true %}
+      <div class="col-12">
+        <h2 class="c-slidercontent__title">{{options.title}}</h2>
+        <div class="e-spacer-3"></div>
+      </div>
+    {% endif %}
+  </div>
+  <div class="owl-carousel">
+    {% set i = 0 %}
+    {% for block in options.items %}
+    {% set i = i + 1 %}
+    <div class="c-slidercontent__slide item" data-dot="<button class='c-slidercontent__slide' role='button'>0{{i}}.</button>">
+      <div class="row">
+          <div class="col-12 col-md-5 col-xl-4 align-self-center">
+            <h3>{{block.titleItem}}</h3>
+            {{block.contentItem}}
+          </div>
+          <div class="col-12 col-md-6 offset-md-1 offset-xl-2">
+            {% set image = block.imageItem.one() %}
+            {% if image %}
+              {% set imageItem = image.url %}
+              <img src="{{imageItem}}" alt="">
+            {% endif %}
+          </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+{% set options = null %}

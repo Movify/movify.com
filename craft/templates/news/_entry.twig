@@ -1,0 +1,96 @@
+{#
+ # News entry template
+ # -------------------
+ #
+ # This template gets loaded whenever a News entry’s URL is
+ # requested. That’s because the News section’s Template setting is
+ # set to “news/_entry”, the path to this template.
+ #
+ # When this template is loaded, it will already have an ‘entry’
+ # variable, set to the requested News entry.
+ #
+ # See this page for more details on how Craft routes requests:
+ # http://craftcms.com/docs/routing
+ #}
+
+
+{% set title = entry.title %}
+{% set header = "white" %}
+{% set headerHome = false %}
+
+{% extends "layouts/default" %}
+
+{% block content %}
+
+{% set rel = entry.blogCategory.one() %}
+{% if rel %}
+    {% set articleCategory = rel.title %}
+{% else %}
+  {% set articleCategory = 'unsorted' %}
+{% endif %}
+
+{% if entry.blogAuthor %}
+    {% set articleAuthor= entry.blogAuthor %}
+{% else %}
+  {% set articleAuthor = 'unknown' %}
+{% endif %}
+
+{% set headerArticleOptions = {
+	title:entry.title,
+	date:entry.postDate|date('d/m/Y'),
+  author:articleAuthor,
+  category:articleCategory,
+	background:entry.blogCover,
+} %}
+{% include '_components/headerarticle.twig' with { options: headerArticleOptions } %}
+
+
+<section class="p-article">
+<article class="u-bg-white">
+  <div class="e-spacer-section"></div>
+  <div class="container">
+    <div class="row justify-content-center">
+      {% include '_templates/blog.twig' %}
+    </div>
+  </div>
+  <div class="e-spacer-section"></div>
+</article>
+</section>
+
+<div class="p-article-more u-mode-negative">
+  {% set params = craft.entries.section('blog').orderBy('postDate asc') %}
+  {% set prev = entry.getPrev(params) %}
+  {% if prev %}
+    {% set blogCover = prev.blogCover.one() %}
+    {% if blogCover %}
+      {% set blogCover = blogCover.url %}
+    {% endif %}
+    <div class="p-article-more__previous u-bg-cc u-bg-cover lazyload js-click-box" data-bgset="{{blogCover}}">
+      <h2>
+        {{ prev.title }}
+      </h2>
+      <p>
+        {{ prev.blogSummary }}
+      </p>
+      <a class="e-link" href="{{ prev.url }}">Read more</a>
+    </div>
+  {% endif %}
+  {% set next = entry.getNext(params) %}
+  {% if next %}
+    {% set blogCover = next.blogCover.one() %}
+    {% if blogCover %}
+      {% set blogCover = blogCover.url %}
+    {% endif %}
+    <div class="p-article-more__next u-bg-cc u-bg-cover lazyload js-click-box" data-bgset="{{blogCover}}">
+      <h2>
+        {{ next.title }}
+      </h2>
+      <p>
+        {{ next.blogSummary }}
+      </p>
+      <a class="e-link" href="{{ next.url }}">Read more</a>
+    </div>
+  {% endif %}
+</div>
+
+{% endblock %}

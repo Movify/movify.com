@@ -1,0 +1,23 @@
+/* ==========================================================================
+   Home
+   ========================================================================== */
+
+$prefix:#{$page}+'-joinus';
+
+
+.#{$prefix}-invitation{
+  text-align: center;
+  h2{
+    @include rfs(5rem);
+  }
+  h3{
+  }
+}
+
+
+// MEDIUM-UP
+
+@include media-breakpoint-up(md){
+
+
+}

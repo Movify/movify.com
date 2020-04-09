@@ -1,0 +1,403 @@
+
+
+
+{% for block in entry.page.level(1).all() %}
+
+{% if loop.first %}
+    {% set first = true %}
+{% endif %}
+
+
+{% switch block.type.handle %}
+
+{# SLIDERS #}
+
+
+
+{# sliderMembers #}
+{% case 'sliderMembers' %}
+
+{% import 'macros/helpers' as macros %}
+{% set navTarget = macros.target(block.navTarget) %}
+{% set navTargetClass = macros.targetClass(block.navTarget) %}
+{% set navTargetClass = macros.targetClass(block.navTarget) %}
+
+<section class="u-bg-white {{navTargetClass}}" {{navTarget}}>
+  <div class="container">
+  {% for block in block.sliderTeam.all() %}
+    {# slidercard #}
+    {% set slidercardOptions = {
+      content: block.intro,
+      position: block.position,
+      items: block.members,
+    } %}
+    {% include '_components/slidercard.twig' with { options: slidercardOptions } %}
+  {% endfor %}
+  </div>
+</section>
+
+{# sliderBullet #}
+{% case 'sliderBullet' %}
+
+{% import 'macros/helpers' as macros %}
+{% set navTarget = macros.target(block.navTarget) %}
+{% set navTargetClass = macros.targetClass(block.navTarget) %}
+{% set navTargetClass = macros.targetClass(block.navTarget) %}
+
+<section class="decoration__section u-bg-white {{navTargetClass}}" {{navTarget}}>
+  {# decoration #}
+  {% set decorationOptions = {
+    template: block.decorationTemplate,
+  } %}
+  {% include '_components/decoration.twig' with { options: decorationOptions } %}
+  <div class="e-spacer-section"></div>
+  <div class="container">
+    {# button #}
+    {% set sliderBulletOptions = {
+      title:block.titleContent,
+      items:block.sliderBullet,
+      button:block.button,
+      active:'0'
+    } %}
+    {% include '_components/sliderbullet.twig' with { options: sliderBulletOptions } %}
+  </div>
+  <div class="e-spacer-section"></div>
+</section>
+
+{# sliderContent #}
+{% case 'sliderContent' %}
+
+{% import 'macros/helpers' as macros %}
+{% set navTarget = macros.target(block.navTarget) %}
+{% set navTargetClass = macros.targetClass(block.navTarget) %}
+
+<section class="u-bg-gray1 decoration__section {{navTargetClass}}" {{navTarget}}>
+  {# decoration #}
+  {% set decorationOptions = {
+    template: block.decorationTemplate,
+  } %}
+  {% include '_components/decoration.twig' with { options: decorationOptions } %}
+  <div class="e-spacer-section"></div>
+  <div class="container">
+      {# slidercontent #}
+      {% set sliderContentOptions = {
+        title: block.titleContent,
+        items: block.sliderContent,
+      } %}
+      {% include '_components/slidercontent.twig' with { options: sliderContentOptions } %}
+  </div>
+  <div class="e-spacer-section"></div>
+</section>
+
+{# CONTACT #}
+
+{# contact #}
+{% case 'contact' %}
+
+{% import 'macros/helpers' as macros %}
+{% set navTarget = macros.target(block.navTarget) %}
+{% set navTargetClass = macros.targetClass(block.navTarget) %}
+{% set mode = macros.negative(block.mode) %}
+{% if block.background %} {% set background = block.background %}{% endif %}
+
+<section class="{{background}} {{navTargetClass}} {{mode}} decoration__section" {{navTarget}}>
+  {# decoration #}
+  {% set decorationOptions = {
+    template: block.decorationTemplate,
+  } %}
+  {% include '_components/decoration.twig' with { options: decorationOptions } %}
+  <div class="e-spacer-section"></div>
+  {# contact #}
+  {% set contactOptions = {
+    form: block.form,
+    title: block.titleContent,
+    subtitle: block.titleSubtitle,
+    position: block.positionContact,
+  } %}
+  {% include '_components/contact.twig' with { options: contactOptions } %}
+  <div class="e-spacer-section"></div>
+</section>
+
+{# office #}
+{% case 'office' %}
+
+{% import 'macros/helpers' as macros %}
+{% set navTarget = macros.target(block.navTarget) %}
+{% set navTargetClass = macros.targetClass(block.navTarget) %}
+
+<section class="u-bg-white decoration__section {{navTargetClass}}" {{navTarget}}>
+  {# decoration #}
+  {% set decorationOptions = {
+    template: block.decorationTemplate,
+  } %}
+  {% include '_components/decoration.twig' with { options: decorationOptions } %}
+  {% if first %}
+    <div class="e-spacer-section"></div>
+    {% set first = false %}
+  {% endif %}
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <h3 class="p-contact-infotitle">
+          {{block.titleContent}}
+        </h3>
+        <div class="e-spacer-1"></div>
+      </div>
+      {% for row in block.office.all() %}
+        <div class="col-12 col-md-4 col-lg-3">
+          <h4>{{row.officeInfo}}</h4>
+          <p>
+            {{row.officeDetails | nl2br}}
+          </p>
+          <div class="e-spacer-2 d-md-none"></div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+  <div class="e-spacer-section"></div>
+</section>
+
+{# map #}
+{% case 'map' %}
+
+{% import 'macros/helpers' as macros %}
+{% set navTarget = macros.target(block.navTarget) %}
+{% set navTargetClass = macros.targetClass(block.navTarget) %}
+
+<section class="{{navTargetClass}}" {{navTarget}}>
+  {# map #}
+  {% set mapOptions = {
+    items: block.map,
+  } %}
+  {% include '_components/map.twig' with { options: mapOptions } %}
+</section>
+
+{# social #}
+{% case 'social' %}
+
+{% import 'macros/helpers' as macros %}
+{% set navTarget = macros.target(block.navTarget) %}
+{% set navTargetClass = macros.targetClass(block.navTarget) %}
+
+<section class="u-bg-white {{navTargetClass}}" {{navTarget}}>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="e-card u-bg-gray1">
+          <h3 class="p-contact-infotitle">
+            Our social channels
+          </h3>
+          <ul class="e-list-social e-list-social--left">
+            {% for row in informations.social.all() %}
+                <li>
+                  <a href="{{ row.socialUrl }}" target="_blank">
+                    <span class="icon-movify-iconfont-{{ row.socialIcon }}"></span>
+                  </a>
+                </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="e-spacer-section"></div>
+</section>
+
+{# NEWS #}
+
+{# hotnews #}
+{% case 'hotnews' %}
+
+{% import 'macros/helpers' as macros %}
+{% set navTarget = macros.target(block.navTarget) %}
+{% set navTargetClass = macros.targetClass(block.navTarget) %}
+
+<section class="decoration__section u-bg-gray1 {{navTargetClass}}" {{navTarget}}>
+  {# decoration #}
+  {% set decorationOptions = {
+    template: block.decorationTemplate,
+  } %}
+  {% include '_components/decoration.twig' with { options: decorationOptions } %}
+  {# hotnews #}
+  {% for block in block.hotnews.all() %}
+    {% set hotnewsOptions = {
+      title: block.titleHotnews,
+      quote: block.quote,
+      member: block.member,
+      button: block.button,
+    } %}
+    {% include '_components/hotnews.twig' with { options: hotnewsOptions } %}
+  {% endfor %}
+</section>
+
+{# OTHER #}
+
+{# iconslist #}
+{% case 'iconsList' %}
+
+{% import 'macros/helpers' as macros %}
+{% set navTarget = macros.target(block.navTarget) %}
+{% set navTargetClass = macros.targetClass(block.navTarget) %}
+{% set navTargetClass = macros.targetClass(block.navTarget) %}
+{% set mode = macros.negative(block.mode) %}
+{% if block.background %} {% set background = block.background %}{% endif %}
+
+<section class="{{background}} {{navTargetClass}} {{mode}} decoration__section" {{navTarget}}>
+  {# decoration #}
+  {% set decorationOptions = {
+    template: block.decorationTemplate,
+  } %}
+  {% include '_components/decoration.twig' with { options: decorationOptions } %}
+  <div class="e-spacer-section"></div>
+  {# numbers #}
+  {% set iconslistOptions = {
+    title:block.title,
+    icons: block.iconsList,
+  } %}
+  {% include '_components/iconslist.twig' with { options: iconslistOptions } %}
+  <div class="e-spacer-section"></div>
+</section>
+
+{# partners #}
+{% case 'partners' %}
+
+{% import 'macros/helpers' as macros %}
+{% set navTarget = macros.target(block.navTarget) %}
+{% set navTargetClass = macros.targetClass(block.navTarget) %}
+
+<section class="decoration__section u-bg-white {{navTargetClass}}" {{navTarget}}>
+  {# decoration #}
+  {% set decorationOptions = {
+    template: block.decorationTemplate,
+  } %}
+  {% include '_components/decoration.twig' with { options: decorationOptions } %}
+  <div class="e-spacer-4"></div>
+  {# partners #}
+  {% set partnersOptions = {
+    title: block.titleContent,
+    partners: block.partners,
+    partnersMobile: block.partnersMobile,
+  } %}
+  {% include '_components/partners.twig' with { options: partnersOptions } %}
+  <div class="e-spacer-4"></div>
+</section>
+
+{# quote #}
+{% case 'quote' %}
+
+{% import 'macros/helpers' as macros %}
+{% set navTarget = macros.target(block.navTarget) %}
+{% set navTargetClass = macros.targetClass(block.navTarget) %}
+
+<section class="decoration__section {{navTargetClass}}" {{navTarget}}>
+  {# decoration #}
+  {% set decorationOptions = {
+    template: block.decorationTemplate,
+  } %}
+  {% include '_components/decoration.twig' with { options: decorationOptions } %}
+  <div class="p-home-quote">
+    <div class="e-spacer-4"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-md-8 offset-md-2">
+          <p>
+            {{block.editor | nl2br }}
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="e-spacer-4"></div>
+  </div>
+</section>
+
+{# blocs #}
+{% case 'blocs' %}
+
+{% import 'macros/helpers' as macros %}
+{% set navTarget = macros.target(block.navTarget) %}
+{% set navTargetClass = macros.targetClass(block.navTarget) %}
+
+<section class="c-blocs {{navTargetClass}}" {{navTarget}}>
+  {% for block in block.blocs.all() %}
+    {% set blocsOptions = {
+      title: block.blocTitle,
+      content: block.blocContent,
+      color: block.blocColor,
+      direction: block.blocDirection,
+      image: block.blocImage,
+    } %}
+    {% include '_components/blocs.twig' with { options: blocsOptions } %}
+  {% endfor %}
+</section>
+
+{# expand #}
+{% case 'expand' %}
+
+{% import 'macros/helpers' as macros %}
+{% set navTarget = macros.target(block.navTarget) %}
+{% set navTargetClass = macros.targetClass(block.navTarget) %}
+
+<section class="{{navTargetClass}} u-mode-negative" {{navTarget}}>
+  {# decoration #}
+  {% set decorationOptions = {
+    template: block.decorationTemplate,
+  } %}
+  {% include '_components/decoration.twig' with { options: decorationOptions } %}
+  <div class="e-spacer-section"></div>
+  <div class="container">
+    {% if block.titleContent != '' %}
+      <div class="row">
+        <div class="col-12">
+          <h2>{{block.titleContent}}</h2>
+        </div>
+      </div>
+    {% endif %}
+    <div class="row">
+      <div class="col-12">
+      {% set blocsOptions = {
+        items: block.expand,
+      } %}
+      {% include '_components/expand.twig' with { options: blocsOptions } %}
+      </div>
+    </div>
+  </div>
+  <div class="e-spacer-section"></div>
+</section>
+
+{# navPage #}
+{% case 'navPage' %}
+
+<section class="u-bg-brand2">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        {% set navPageOptions = {
+          items:block.navPage,
+        } %}
+        {% include '_components/navpage.twig' with { options: navPageOptions } %}
+      </div>
+    </div>
+  </div>
+  <div class="e-spacer-1"></div>
+</section>
+
+{# CUSTOM #}
+
+{# navPage #}
+{% case 'editor' %}
+
+{% import 'macros/helpers' as macros %}
+{% set navTarget = macros.target(block.navTarget) %}
+{% set navTargetClass = macros.targetClass(block.navTarget) %}
+
+<section class="{{navTargetClass}} decoration__section" {{navTarget}}>
+  {# decoration #}
+  {% set decorationOptions = {
+    template: block.decorationTemplate,
+  } %}
+  {% include '_components/decoration.twig' with { options: decorationOptions } %}
+  {{block.editor}}
+</section>
+
+{% endswitch %}
+{% endfor %}

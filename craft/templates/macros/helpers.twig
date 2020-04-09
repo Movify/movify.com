@@ -1,0 +1,14 @@
+
+
+
+{% macro target(target) %}
+  {% if target %}data-nav-page="{{target}}"{% endif %}
+{% endmacro %}
+
+{% macro targetClass(target) %}
+  {% if target %}c-nav-page__item{% endif %}
+{% endmacro %}
+
+{% macro negative(mode) %}
+  {% if mode %}u-mode-negative{% endif %}
+{% endmacro %}

@@ -1,0 +1,52 @@
+/* ==========================================================================
+   Pagination
+   ========================================================================== */
+
+$prefix:$element;
+
+.#{$prefix}-pagination{
+
+.page-link{
+  color:$c-brand2;
+  background: none;
+  outline: none;
+}
+
+}
+
+
+// NEGATIVE
+
+.#{$negative}{
+
+.#{$prefix}-pagination{
+
+  .page-link{
+    color:$c-white;
+    border: none;
+    transition: $default-transition;
+    border-bottom: $border-2 solid transparent;
+    &:hover{
+      background: none;
+      text-align: center;
+      border-bottom: $border-2 solid $c-brand1;
+    }
+  }
+  .active a{
+    background: none;
+    text-align: center;
+    border-bottom: $border-2 solid $c-brand1;
+  }
+
+}
+
+}
+
+
+
+// MEDIUM-UP
+
+@include media-breakpoint-up(md){
+
+
+}

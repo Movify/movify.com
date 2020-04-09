@@ -1,0 +1,64 @@
+/* ==========================================================================
+   Spacing
+   ========================================================================== */
+
+$prefix: $utility;
+
+$spacing-ratio-lg : 1.6;
+$spacing-ratio-md : 1.2;
+
+$spacing-amounts: (-80,-70,-60,-50,-40,-30,-20,-10,-5,5,10,20,30,40,50,100);
+$sides: (top, bottom, left, right);
+
+@each $space in $spacing-amounts {
+ @each $side in $sides {
+   .#{$prefix}-m#{str-slice($side, 0, 1)}-#{$space} {
+     margin-#{$side}: #{$space}px !important;
+   }
+   .#{$prefix}-p#{str-slice($side, 0, 1)}-#{$space} {
+     padding-#{$side}: #{$space}px !important;
+   }
+   .#{$prefix}-p#{$space} {
+     padding: #{$space}px !important;
+   }
+   .#{$prefix}-m#{$space} {
+     margin: #{$space}px !important;
+   }
+ }
+}
+@include media-breakpoint-up(md){
+  @each $space in $spacing-amounts {
+   @each $side in $sides {
+     .#{$prefix}-m#{str-slice($side, 0, 1)}-#{$space} {
+       margin-#{$side}: #{$space*$spacing-ratio-md}px !important;
+     }
+     .#{$prefix}-p#{str-slice($side, 0, 1)}-#{$space} {
+       padding-#{$side}: #{$space*$spacing-ratio-md}px !important;
+     }
+     .#{$prefix}-p#{$space} {
+       padding: #{$space*$spacing-ratio-md}px !important;
+     }
+     .#{$prefix}-m#{$space} {
+       margin: #{$space*$spacing-ratio-md}px !important;
+     }
+   }
+  }
+}
+@include media-breakpoint-up(lg){
+  @each $space in $spacing-amounts {
+   @each $side in $sides {
+     .#{$prefix}-m#{str-slice($side, 0, 1)}-#{$space} {
+       margin-#{$side}: #{$space*$spacing-ratio-md}px !important;
+     }
+     .#{$prefix}-p#{str-slice($side, 0, 1)}-#{$space} {
+       padding-#{$side}: #{$space*$spacing-ratio-md}px !important;
+     }
+     .#{$prefix}-p#{$space} {
+       padding: #{$space*$spacing-ratio-md}px !important;
+     }
+     .#{$prefix}-m#{$space} {
+       margin: #{$space*$spacing-ratio-md}px !important;
+     }
+   }
+  }
+}

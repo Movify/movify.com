@@ -1,0 +1,17 @@
+/* ==========================================================================
+   Contact
+   ========================================================================== */
+
+$prefix:#{$page}+'-contact';
+
+.#{$prefix}-title{
+  @include rfs(7rem);
+}
+
+.#{$prefix}-subtitle{
+  @include rfs(4rem);
+}
+
+.#{$prefix}-infotitle{
+  @include rfs(2.4rem);
+}

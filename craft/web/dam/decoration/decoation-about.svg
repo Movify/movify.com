@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="360px" height="275px" viewBox="0 0 360 275" version="1.1">
+  <!-- Generator: Sketch 58 (84663) - https://sketch.com -->
+  <title>Fill 4 + Fill 1 + Oval Mask</title>
+  <desc>Created with Sketch.</desc>
+  <g id="FINAL" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+    <g id="Fill-4-+-Fill-1-+-Oval-Mask">
+      <path d="M34,0 C34,128.521535 162.048215,275 360,275 L360,0 L34,0 Z" id="Fill-4" fill="#E6332A"></path>
+      <circle id="Oval" fill="#252739" cx="17" cy="186" r="17"></circle>
+    </g>
+  </g>
+</svg>

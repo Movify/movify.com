@@ -1,0 +1,102 @@
+/* ==========================================================================
+   Expand
+   ========================================================================== */
+
+$prefix:$component;
+
+.#{$prefix}-expand{
+
+}
+
+.#{$prefix}-expand__item__selector{
+  display: block;
+  padding: 2rem 0rem;
+  margin-bottom: 1rem;
+  @include rfs(2rem);
+  width: 100%;
+  cursor: pointer;
+  position: relative;
+  transition: $default-transition;
+  border-bottom: 1px solid rgba($c-brand2, .1);
+}
+
+.#{$prefix}-expand__item__selector span{
+  position: absolute;
+  right:1.5rem;
+  top:calc(50% - 1rem);
+  font-size: 2rem;
+  &:before{
+    content: "\e90b";
+    display: block;
+  }
+}
+
+.#{$prefix}-expand__item__content{
+  display: none;
+  margin-top: 2rem;
+}
+
+.#{$prefix}-expand__item--active{
+  .#{$prefix}-expand__item__selector span{
+    &:before{
+      content: "\e90a";
+      display: block;
+    }
+  }
+}
+
+//CONTENT STYLE
+
+.#{$prefix}-expand__item__content{
+  ul{
+    padding-left:1rem;
+    list-style: none;
+  }
+  ul li{
+    margin-bottom: .5rem;
+  }
+  ul li::before{
+    content: "\e90c";
+    font-family: 'movify' !important;
+    margin-right: .5rem;
+    color:$c-brand1;
+  }
+}
+
+//NEGATIVE
+
+.#{$negative}{
+
+.#{$prefix}-expand__item__selector{
+  color:$c-white;
+  border-bottom: 1px solid rgba($c-white, .1);
+  &:hover{
+    color:$c-brand1;
+    span{
+      color:$c-brand1;
+    }
+  }
+}
+
+.#{$prefix}-expand__item--active{
+  .#{$prefix}-expand__item__selector{
+    color:$c-brand1;
+    border-bottom: 1px solid rgba($c-brand1, .7);
+    span{
+      color:$c-brand1;
+    }
+  }
+}
+
+}
+
+// MEDIUM-UP
+
+@include media-breakpoint-up(md){
+
+.#{$prefix}-expand__item__content{
+  display: none;
+  margin-top: 3rem;
+}
+
+}

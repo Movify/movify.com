@@ -1,0 +1,24 @@
+
+{# Default #}
+
+{% set defaults = {
+  content: '',
+  negative: false,
+  fullWidth: true,
+  center: false,
+  url: '',
+} %}
+
+{# -- Merge Default with Options -- #}
+{% set options = options ? defaults|merge(options) : defaults %}
+
+<a class="e-btn
+  {% if options.negative == true %}e-btn--neg{% endif %}
+  {% if options.fullWidth == true %}e-btn--full-width{% endif %}
+  {% if options.center == true %}e-btn--center{% endif %}
+  "
+  href="{{options.url}}">
+  {{options.content}}
+</a>
+
+{% set options = null %}

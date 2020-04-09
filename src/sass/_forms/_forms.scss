@@ -1,0 +1,62 @@
+/* ==========================================================================
+   Forms
+========================================================================== */
+
+
+// settings
+
+$prefix:'form';
+
+$input-font-size: 1.5rem;
+$label-font-size: 1.5rem;
+
+$input-height: 4.2rem;
+
+
+@import "input-checkbox";
+@import "input-switch";
+@import "input-text";
+@import "select";
+@import "fieldset";
+@import "textarea";
+@import "messages";
+@import "file";
+
+.#{$prefix}-group{
+  margin-bottom: 1.8rem;
+}
+
+label{
+  color:$c-gray3;
+  margin-bottom: .8rem;
+  display: inline-block;
+  @include rfs($label-font-size);
+}
+input:disabled{
+  cursor: not-allowed;
+}
+
+// NEGATIVE
+
+.#{$negative}{
+label{
+  color:$c-gray3;
+}
+}
+
+// ERROR MESSAGE
+
+form .alert p{
+  font-weight: $f-bold;
+}
+
+.form-group .invalid-feedback{
+  @include rfs(1.5rem);
+  color:$c-white;
+  padding:0rem;
+  margin-bottom: 0;
+  color:$c-brand1;
+  @include list-reset;
+  margin-top: 1rem;
+  display: inline-block;
+}

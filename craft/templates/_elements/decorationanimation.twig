@@ -1,0 +1,46 @@
+
+{# Default #}
+
+{% set defaults = {
+  parameters: '',
+  container: true,
+  visibility: 'd-block',
+  animation: '',
+} %}
+
+{# -- Merge Default with Options -- #}
+{% set options = options ? defaults|merge(options) : defaults %}
+
+
+{% set positionTop ='0' %}
+{% set positionBottom = '0' %}
+{% set positionLeft ='0' %}
+{% set positionRight = '0' %}
+{% set width ='20' %}
+{% set height = '20' %}
+{% set container = false %}
+{% for row in options.parameters.all() %}
+  {% set positionTop = row.top %}
+  {% set positionBottom = row.bottom %}
+  {% set positionLeft = row.left %}
+  {% set positionRight = row.right %}
+  {% set height = row.height %}
+  {% set width = row.width %}
+{% endfor %}
+{% if options.container == true %}
+  {% set container = 'e-decoration__element--container' %}
+{% else %}
+  {% set container = '' %}
+{% endif %}
+<div class="e-decoration {{options.visibility}}">
+  <div class="e-decoration__element {{container}}">
+    {% set animation = options.animation.one() %}
+    {% if animation %}
+        {% set animation = animation.url %}
+        <div class="e-decoration__animation" data-animation-play="false" data-animation-path="{{animation}}" style="top:{{positionTop}}rem;bottom:{{positionBottom}}rem;right:{{positionRight}}rem;left:{{positionLeft}}rem;height:{{height}}rem;width:{{width}}rem"></div>
+    {% endif %}
+  </div>
+</div>
+
+
+{% set options = null %}

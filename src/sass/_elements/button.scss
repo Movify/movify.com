@@ -1,0 +1,57 @@
+/* ==========================================================================
+   Button
+   ========================================================================== */
+
+$prefix: $element;
+
+.#{$prefix}-btn{
+  @include link-reset;
+  padding: 1.5rem 2rem;
+  display: inline-block;
+  text-transform: uppercase;
+  font-weight: $f-bold;
+  color: $c-white;
+  background: $c-brand2;
+  transition: $default-transition;
+  border-radius: 1rem;
+  text-align: center;
+  cursor: pointer;
+  @include rfs(1.3rem);
+  line-height: 1.3em;
+  &:hover{
+    background: $c-gray3;
+    color:$c-white;
+  }
+}
+
+button.#{$prefix}-btn{
+  border: 0px;
+}
+
+.#{$prefix}-btn--center{
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.#{$prefix}-btn--full{
+  display: block;
+  width: 100%;
+}
+
+.#{$prefix}-btn--neg{
+  background: $c-brand1;
+  &:hover{
+    background: $c-gray1;
+  }
+}
+
+
+
+@include media-breakpoint-up(md){
+
+.#{$prefix}-btn{
+  padding: 1.5rem 2.5rem;
+}
+
+}

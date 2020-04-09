@@ -1,0 +1,41 @@
+/* ==========================================================================
+   Decoration
+   ========================================================================== */
+
+$prefix: $element;
+
+
+
+.#{$prefix}-numbers{
+  margin-bottom: 2rem;
+  &__img img{
+    display: block;
+    margin: 0 auto;
+    height: 8rem;
+  }
+  &__nummer{
+    margin-top: 2rem;
+    @include responsive-font-size(6rem);
+    color:$c-brand1;
+    font-weight: $f-bold;
+    text-align: center;
+  }
+  &__title{
+    margin-top: 1rem;
+    @include responsive-font-size(2rem);
+    text-align: center;
+  }
+  &__content{
+    text-align: center;
+    margin-top: 2rem;
+  }
+}
+
+
+// MEDIUM-UP
+
+@include media-breakpoint-up(md){
+
+
+
+}

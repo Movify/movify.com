@@ -1,0 +1,246 @@
+/* ==========================================================================
+   Slider Cards
+   ========================================================================== */
+
+$prefix:$component;
+
+$space-content-lg:8rem;
+$space-content-md:5rem;
+$space-content-sm:7rem;
+
+
+.#{$prefix}-slidercard{
+  .owl-stage-outer{
+    overflow: visible;
+  }
+}
+
+.#{$prefix}-slidercard__controller{
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  display: grid;
+  grid-template-columns: auto auto;
+  div{
+    align-self: center;
+    align-content: stretch;
+  }
+}
+
+.#{$prefix}-slidercard__numbering{
+  @include rfs(3rem);
+  span:first-child{
+    font-weight: $f-bold;
+    color:$c-brand1;
+  }
+  span:last-child{
+    font-weight: $f-light;
+  }
+}
+
+.#{$prefix}-slidercard__arrows{
+  margin-left: auto;
+}
+
+.#{$prefix}-slidercard__arrow{
+  color:$c-brand1;
+  float: left;
+  &--disable{
+    opacity: .5;
+    pointer-events: none;
+  }
+}
+
+.#{$prefix}-slidercard__arrow--right, .#{$prefix}-slidercard__arrow--left{
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.#{$prefix}-slidercard__arrow--left{
+  margin-right: 1rem;
+}
+
+
+
+// CONTENT
+
+.#{$prefix}-slidercard--content{
+  padding: $space-content-sm 0;
+  .#{$prefix}-slidercard__numbering{
+    color:$c-white;
+    span{
+      color:$c-white;
+    }
+  }
+}
+
+.#{$prefix}-slidercard__content{
+  color:$c-white;
+  z-index: 10;
+  position: relative;
+  p{
+    color:$c-white;
+  }
+}
+
+.#{$prefix}-slidercard__decoration{
+  position: absolute;
+  z-index: 0;
+}
+
+// CONTENT RIGHT
+
+.#{$prefix}-slidercard--content-right{
+  .row{
+    justify-content: flex-end;
+  }
+
+  .#{$prefix}-slidercard__content{
+    text-align: right;
+  }
+
+  .#{$prefix}-slidercard__decoration{
+    border-radius: 30rem 0rem 0rem 0rem;
+    background: $c-brand1;
+    height: calc(100% + 42.1rem);
+    width: 400%;
+    top: -10rem;
+    left:-6rem;
+  }
+
+  .#{$prefix}-slidercard__arrow{
+    color:$c-brand2;
+  }
+
+}
+
+// CONTENT LEFT
+
+.#{$prefix}-slidercard--content-left{
+
+  .#{$prefix}-slidercard__decoration{
+    border-radius: 0rem 30rem 0rem 0rem;
+    background: $c-brand2;
+    height: calc(100% + 42.1rem);
+    width: 400%;
+    top: -10rem;
+    right:-10rem;
+  }
+
+  .#{$prefix}-slidercard__numbering{
+    margin-left: auto;
+    order: 2;
+  }
+  .#{$prefix}-slidercard__arrows{
+    margin: 0;
+    order: 1;
+  }
+
+}
+
+// CONTENT LAST
+
+.#{$prefix}-slidercard--content-last{
+  .row{
+    justify-content: flex-end;
+  }
+  .#{$prefix}-slidercard__content{
+    text-align: right;
+  }
+  .#{$prefix}-slidercard__decoration{
+    border-radius: 30rem 0rem 0rem 0rem;
+    background: $c-brand1;
+    height: calc(100% + 42.1rem);
+    width: 400%;
+    top: -10rem;
+    left:-6rem;
+  }
+  .#{$prefix}-slidercard__arrow{
+    color:$c-brand2;
+  }
+}
+
+
+// MEDIUM-UP
+
+@include media-breakpoint-up(md){
+
+
+// CONTENT
+
+.#{$prefix}-slidercard--content{
+  padding-bottom: 10rem;
+  .#{$prefix}-slidercard__numbering{
+    color:$c-brand1;
+    span:first-child{
+      color:$c-brand1;
+    }
+    span:last-child{
+      color:$c-brand2;
+    }
+  }
+}
+
+// CONTENT RIGHT
+
+.#{$prefix}-slidercard--content-right{
+  .#{$prefix}-slidercard__decoration{
+    height: calc(100% + 42rem);
+  }
+
+}
+
+// CONTENT LEFT
+
+.#{$prefix}-slidercard--content-left{
+
+  .#{$prefix}-slidercard__decoration{
+    height: calc(100% + 42rem);
+    right:-10rem;
+  }
+
+  .#{$prefix}-slidercard__numbering{
+    order: 2;
+    margin-right: 0;
+  }
+  .#{$prefix}-slidercard__arrows{
+    order: 1;
+    margin-right: auto;
+  }
+
+  .#{$prefix}-slidercard__arrow{
+    color:$c-brand1;
+  }
+
+}
+
+// CONTENT LAST
+
+.#{$prefix}-slidercard--content-last{
+  margin-top: -9rem;
+  .#{$prefix}-slidercard__decoration{
+    border-radius: 0;
+    background: $c-brand1;
+    height: 600vh;
+    width: 400%;
+    top:-21rem;
+    left:-6rem;
+  }
+}
+
+}
+
+// LARGE-UP
+
+@include media-breakpoint-up(lg){
+
+// CONTENT LEFT
+
+.#{$prefix}-slidercard--content-left{
+
+  .#{$prefix}-slidercard__decoration{
+    right:-32rem;
+  }
+
+}
+
+}

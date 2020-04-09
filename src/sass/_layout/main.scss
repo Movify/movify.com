@@ -1,0 +1,18 @@
+/* ==========================================================================
+   Main
+   ========================================================================== */
+
+$prefix:$layout;
+
+.#{$prefix}-main{
+  min-height: 100vh;
+  padding-top:9rem;
+  overflow: hidden;
+  &--header-transparent{
+    padding-top:0rem;
+  }
+}
+
+body{
+  background: $c-brand2;
+}

@@ -1,0 +1,118 @@
+
+{# Default #}
+
+{% set defaults = {
+  name:'Carla Wildner',
+  position:'Business manager',
+  image: 'https://res.cloudinary.com/instrument-com/image/upload/c_scale,f_auto,w_1000,dpr_2.0/employees/justin-lewis',
+  content: 'Are you the next talent we’re looking for ?',
+  summary: 'Are you the next talent we’re looking for ?',
+  linkLabel:'Join us',
+  linkUrl:'#',
+  highlighted: true,
+  clickable: false,
+  type:'article',
+} %}
+
+{# -- Merge Default with Options -- #}
+{% set options = options ? defaults|merge(options) : defaults %}
+
+{% if options.highlighted == true %}
+  {% set highlightedClass = 'e-card--highlighted' %}
+{% else %}
+  {% set highlightedClass = '' %}
+{% endif %}
+
+{% if options.clickable == true %}
+  {% set clickableClass = 'js-click-box e-card--clickable' %}
+{% else %}
+  {% set clickableClass = 'js-click-box e-card--clickable' %}
+{% endif %}
+
+
+{% set transformCard = {
+  mode: 'crop',
+  width: 600,
+  height: 380,
+  quality: 90,
+  position: 'focalPoint'
+} %}
+{% set image = options.image %}
+{% if image %}
+    {% set imageUrl = image.getUrl(transformCard) %}
+{% else %}
+  {% set imageUrl = settings.image.one().getUrl(transformCard) %}
+{% endif %}
+
+
+
+{% if options.type == 'profile' %}
+
+<div class="e-card e-card--profile {{highlightedClass}}">
+  <div class="e-card__img">
+    <img src="{{imageUrl}}" alt="">
+  </div>
+  <div class="e-card__content">
+    <p class="e-card__content__title">
+      {{options.name}}
+    </p>
+    <p class="e-card__content__position">
+      {{options.position}}
+    </p>
+  </div>
+</div>
+
+{% endif %}
+
+{% if options.type == 'cta' %}
+
+<div class="e-card e-card--cta {{ highlightedClass }} {{clickableClass}} u-bg-brand2 u-mode-negative">
+  <div class="e-card__logo">
+    <img src="{{imageUrl}}" alt="">
+  </div>
+  <div class="e-card__intro">
+    <p>
+      {{options.content}}
+    </p>
+  </div>
+  <div class="e-card__cta">
+    {# linktext #}
+    {% set linktextOptions = {
+      content: options.linkLabel,
+      url: options.linkUrl,
+    } %}
+    {% include '_elements/linktext.twig' with { options:linktextOptions } %}
+  </div>
+</div>
+
+{% endif %}
+
+
+{% if options.type == 'article' %}
+
+<div class="e-card e-card--article {{clickableClass}} {{highlightedClass}}">
+  <div class="e-card__img">
+    <img src="{{imageUrl}}" alt="">
+  </div>
+  <div class="e-card__content js-match-height">
+    <p class="e-card__content__title">
+      {{options.name}}
+    </p>
+    <p class="e-card__content__summary">
+      {{options.summary}}
+    </p>
+    <div class="e-card__cta">
+      {# linktext #}
+      {% set linktextOptions = {
+        content: options.linkLabel,
+        url: options.linkUrl,
+      } %}
+      {% include '_elements/linktext.twig' with { options:linktextOptions } %}
+    </div>
+  </div>
+</div>
+
+{% endif %}
+
+
+{% set options = null %}

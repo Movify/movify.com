@@ -1,0 +1,172 @@
+/* ==========================================================================
+   Typography
+   ========================================================================== */
+
+$line-height: 1.5em;
+
+$p:1.8rem;
+$p-sm:1.4rem;
+$h1: 4rem;
+$h1-subtitle: 3.6rem;
+$h2: 3.2rem;
+$h2-subtitle: 3rem;
+$h3: 2.8rem;
+$h3-subtitle: 2.4rem;
+$h4: 2rem;
+$h4-subtitle: 1.6rem;
+$h5: 1.8rem;
+
+
+body{
+  font-family: $main-font;
+  color:$main-text-color;
+}
+
+html {
+ font-smoothing: antialiased;
+ text-rendering: optimizeLegibility;
+ font-size: 62.5%;
+}
+
+a{
+  color: $c-brand1;
+  text-decoration: none;
+  font-weight: 700;
+  &:hover{
+    color: $c-brand1;
+  }
+}
+
+p{
+  font-weight:300;
+  margin-bottom: 1rem;
+  color: $c-black;
+}
+
+ul,ol{
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+h1,h2,h3,h4,h5{
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.subtitle{
+  display: block;
+  font-weight: 300;
+  color: $c-gray2;
+}
+.subtitle-top{
+  display: block;
+  font-weight: 300;
+  color: $c-brand1;
+  text-transform: uppercase;
+  letter-spacing: .3rem;
+  @include rfs(1.4rem)
+}
+
+small{
+  font-size: $p-sm;
+  line-height: 1em;
+  color: $c-gray4;
+}
+
+strong{
+  font-weight: $f-bold;
+}
+
+
+a,p,ul,ol{
+  @include responsive-font-size($p);
+  line-height: $line-height;
+}
+
+h1{
+  @include responsive-font-size($h1);
+  line-height: $line-height;
+}
+
+h1 .subtitle{
+  @include responsive-font-size($h1-subtitle);
+  line-height: $line-height;
+}
+
+h2{
+  @include responsive-font-size($h2);
+  line-height: $line-height;
+}
+
+h2 .subtitle{
+  @include responsive-font-size($h2-subtitle);
+  line-height: $line-height;
+}
+
+h3{
+  @include responsive-font-size($h3);
+  line-height: $line-height;
+}
+
+h3 .subtitle{
+  @include responsive-font-size($h3-subtitle);
+  line-height: $line-height ;
+}
+
+h4{
+  @include responsive-font-size($h4);
+  line-height: $line-height ;
+}
+
+h4 .subtitle{
+  @include responsive-font-size($h4-subtitle);
+  line-height: $line-height ;
+}
+
+h5{
+  @include responsive-font-size($h5);
+  line-height: $line-height ;
+}
+
+h6{
+  @include responsive-font-size($h5);
+  line-height: $line-height ;
+}
+
+blockquote{
+  @include rfs(1.6rem);
+  color:$c-gray3;
+  border-left: .4rem solid $c-gray3;
+  padding-left: 1rem;
+  margin: 2rem 0;
+  font-style: italic;
+}
+
+pre{
+  @include responsive-font-size($p);
+  line-height: $line-height;
+  font-family: $f-sans-serif;
+  padding: 1rem;
+  background: $c-brand2;
+  color:$c-white;
+  border-radius:$border-radius-2;
+  display: block;
+}
+
+@include media-breakpoint-up(md){
+  p, ul, ol{
+    margin-bottom: 2rem;
+  }
+  h1,h2,h3,h4,h5{
+    margin-bottom: 1.8rem;
+  }
+}
+
+@include media-breakpoint-up(lg){
+  p, ul, ol{
+    margin-bottom: 2rem;
+  }
+  h1,h2,h3,h4,h5{
+    margin-bottom: 2rem;
+  }
+}

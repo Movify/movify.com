@@ -1,0 +1,69 @@
+/* ==========================================================================
+   Article
+   ========================================================================== */
+
+$prefix:#{$page}+'-article';
+
+
+.#{$prefix} article{
+
+img{
+  width: 100%;
+}
+
+}
+
+.#{$prefix}-more{
+  display: grid;
+  grid-template-columns: 100%;
+}
+
+.#{$prefix}-more__next, .#{$prefix}-more__previous{
+  padding: 10rem 10%;
+  position: relative;
+  z-index: 1;
+  background-size: cover 100%;
+  &::before{
+    content:'';
+    width:100%;
+    height: 100%;
+    position: absolute;
+    background: $c-brand2;
+    top:0;
+    left:0;
+    opacity:.9;
+    z-index: -1;
+  }
+  &:hover{
+    background-size: cover 120%;
+  }
+}
+
+.#{$prefix}-more__next{
+  order:2;
+}
+
+.#{$prefix}-more__previous{
+  order:1;
+}
+
+// IMAGES
+
+.#{$prefix}-images{
+  margin-top: 2rem;
+  margin-bottom: 3rem;
+  display: grid;
+  grid-gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+}
+
+
+@include media-breakpoint-up(md){
+
+.#{$prefix}-more{
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+
+
+}

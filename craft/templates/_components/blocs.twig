@@ -1,0 +1,61 @@
+
+{# Default #}
+
+{% set defaults = {
+  title: block.blocTitle,
+  content: block.blocContent,
+  color: block.blocColor,
+  direction: block.blocDirection,
+  image: block.blocImage,
+} %}
+
+{# -- Merge Default with Options -- #}
+{% set options = options ? defaults|merge(options) : defaults %}
+
+
+{% set transformLarge = {
+  mode: 'crop',
+  width: 1325,
+  height: 900,
+  quality: 90,
+  position: 'focalPoint'
+} %}
+{% set transformMedium = {
+  mode: 'crop',
+  width: 1024,
+  height: 700,
+  quality: 90,
+  position: 'focalPoint'
+} %}
+{% set transformSmall = {
+  mode: 'crop',
+  width: 640,
+  height: 400,
+  quality: 90,
+  position: 'focalPoint'
+} %}
+{% set image = options.image.one() %}
+{% if image %}
+    {% set blocBackgroundLarge = image.getUrl(transformLarge) %}
+    {% set blocBackgroundMedium = image.getUrl(transformMedium) %}
+    {% set blocBackgroundSmall = image.getUrl(transformSmall) %}
+{% endif %}
+
+
+<div class="c-blocs__bloc {{options.direction}}">
+  <div class="c-blocs__bloc__image u-bg-cc u-bg-cover lazyload"
+  {% if options.image is not empty %}
+   data-bgset="{{blocBackgroundSmall}} [--small] | {{blocBackgroundMedium}} [--medium] | {{blocBackgroundLarge}}"
+  {% endif %}>
+  </div>
+  <div class="c-blocs__bloc__content {{options.color}}">
+    <div>
+      <h2>
+        {{options.title}}
+      </h2>
+      {{options.content}}
+    </div>
+  </div>
+</div>
+
+{% set options = null %}

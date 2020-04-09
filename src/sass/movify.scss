@@ -1,0 +1,71 @@
+
+/* Vendors */
+@import "vendors/bootstrap";
+@import "vendors/iconfont";
+@import "../../node_modules/owl.carousel/src/scss/owl.carousel";
+
+/* Setup */
+@import "base/fonts";
+@import "base/settings";
+@import "base/js";
+
+/* Tools */
+@import "tools/mixins";
+
+/* Layout */
+@import "_layout/header";
+@import "_layout/footer";
+@import "_layout/main";
+@import "_layout/sidebar";
+
+/* Elements */
+@import "_elements/button";
+@import "_elements/buttonslist";
+@import "_elements/link";
+@import "_elements/typography";
+@import "_elements/hr";
+@import "_elements/spacer";
+@import "_elements/decoration";
+@import "_elements/card";
+@import "_elements/iconslist";
+@import "_elements/list";
+@import "_elements/pagination";
+@import "_elements/pdf";
+
+/* Components */
+@import "_components/navbar";
+@import "_components/footer";
+@import "_components/sliderbullet";
+@import "_components/slidercard";
+@import "_components/slidercontent";
+@import "_components/partners";
+@import "_components/hotnews";
+@import "_components/map";
+@import "_components/headernumbers";
+@import "_components/headervideo";
+@import "_components/headercontent";
+@import "_components/headerhome";
+@import "_components/navpage";
+@import "_components/expand";
+@import "_components/blocs";
+
+
+/* Forms */
+@import "_forms/_forms";
+
+/* Utilities */
+@import "_utilities/mode";
+@import "_utilities/general";
+@import "_utilities/background";
+@import "_utilities/text";
+@import "_utilities/transition";
+@import "_utilities/spacing";
+@import "_utilities/state";
+
+
+/* Pages */
+@import "_pages/contact";
+@import "_pages/home";
+@import "_pages/joinus";
+@import "_pages/article";
+@import "_pages/about";

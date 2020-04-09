@@ -1,0 +1,45 @@
+
+{# Default #}
+
+{% set defaults = {
+  title:block.headerTitle,
+  videoDesktop:block.headerVideoDesktop,
+  videoMobile:block.headerVideoMobile,
+} %}
+
+
+<div class="c-header-home u-under-header">
+  <div class="c-header-home__loader">
+    <div class="c-header-home__loader__logo" data-animation-path="/assets/json/loader.json">
+    </div>
+    <div class="c-header-home__loader__circle" data-animation-path="/assets/json/circle.json">
+    </div>
+  </div>
+  <div class="container h-100">
+    <div class="row h-100">
+      <div class="col-12 col-md-10 align-self-center">
+      {% for row in options.title.all() %}
+        <div class="c-header-home__content" data-timing-from="{{row.durationFrom}}" data-timing-to="{{row.durationTo}}">
+          <h1>{{row.contenty}}</h1>
+        </div>
+      {% endfor %}
+      </div>
+    </div>
+  </div>
+  <div class="c-header-home__video">
+    <div class="d-none d-md-block">
+      <video class="c-header-home__video__desktop" preload="auto" loop="" muted="" playsinline="" type="video/mp4">
+        <source src="{{options.videoDesktop}}" type="video/mp4">
+      </video>
+    </div>
+    <div class="d-block d-md-none">
+      <video class="c-header-home__video__mobile" preload="auto" loop="" muted="" playsinline="" type="video/mp4">
+        <source src="{{options.videoMobile}}" type="video/mp4">
+      </video>
+    </div>
+  </div>
+</div>
+
+
+
+{% set options = null %}

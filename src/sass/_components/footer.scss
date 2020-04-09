@@ -1,0 +1,123 @@
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+
+$prefix:$component;
+
+
+.#{$prefix}-footer{
+  padding: 3rem 0rem 3rem 0rem;
+  background: $c-brand2;
+  position: relative;
+  overflow: hidden;
+}
+
+.#{$prefix}-footer__container{
+  display: grid;
+  grid-template-columns: 20% 80%;
+}
+
+.#{$prefix}-footer-col:last-child{
+  grid-column-start: span 3;
+}
+
+.#{$prefix}-footer__info{
+  margin-bottom: 2rem;
+  &__item{
+    padding: 1rem 0rem;
+  }
+  &__item:first-child{
+    padding: 0rem;
+  }
+}
+
+.#{$prefix}-footer__legal{
+  p{
+    color: rgba($c-white,.7);
+    font-size: 1.1rem;
+  }
+}
+
+.#{$prefix}-footer__hr{
+  background: rgba($c-white,.2);
+  height: .1rem;
+  width: 100%;
+  margin: 1.5rem 0rem;
+}
+
+.#{$prefix}-footer__social{
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(1rem, 1fr));
+  grid-column-gap: 2rem;
+  li{
+    margin: 0 auto;
+    display: block;
+  }
+  @include list-reset;
+  a{
+    @include link-reset;
+  }
+  a span{
+    font-size: 2rem;
+    transition: $default-transition;
+  }
+  a:hover span{
+    color:$c-brand1;
+  }
+}
+
+
+// SMALL-UP
+
+@include media-breakpoint-up(sm){
+
+.#{$prefix}-footer__legal{
+  p{
+    margin-right: 1rem;
+  }
+}
+
+}
+
+
+// MEDIUM-UP
+
+@include media-breakpoint-up(md){
+
+.#{$prefix}-footer{
+  padding: 6rem 0rem 6rem 0rem;
+}
+
+.#{$prefix}-footer__container{
+  display: grid;
+  grid-template-columns: 10% 60% 30%;
+}
+
+.#{$prefix}-footer-col{
+  align-self: center;
+}
+
+.#{$prefix}-footer-col:last-child{
+  grid-column-start: 3;
+}
+
+.#{$prefix}-footer__hr{
+  display: none;
+}
+
+.#{$prefix}-footer__info{
+  overflow: hidden;
+  grid-template-columns: 10% 60% auto;
+}
+
+.#{$prefix}-footer__legal{
+  padding-top: 0rem;
+  overflow: hidden;
+  p{
+    float: left;
+    margin-bottom: 0;
+  }
+}
+
+}

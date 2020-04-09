@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="250px" height="334px" viewBox="0 0 250 334" version="1.1">
+  <!-- Generator: Sketch 58 (84663) - https://sketch.com -->
+  <title>patterns</title>
+  <desc>Created with Sketch.</desc>
+  <g id="FINAL" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+    <g id="patterns" transform="translate(125.000000, 166.750000) scale(-1, 1) translate(-125.000000, -166.750000) ">
+      <g id="Group-2">
+        <path d="M250.083333,83.4166667 C250.083333,175.464167 175.426857,250.083333 83.3333333,250.083333 C-8.76019042,250.083333 -83.4166667,175.464167 -83.4166667,83.4166667 L250.083333,83.4166667 Z" id="Fill-1" fill="#FFFFFF" transform="translate(83.333333, 166.750000) scale(-1, 1) rotate(90.000000) translate(-83.333333, -166.750000) "></path>
+        <path d="M250,166.75 C250,212.796762 212.690417,250.125 166.666667,250.125 C120.642917,250.125 83.3333333,212.796762 83.3333333,166.75 L250,166.75 Z" id="Fill-1" fill="#E6332A"></path>
+        <path d="M250,83.375 C250,129.421762 212.690417,166.75 166.666667,166.75 C120.642917,166.75 83.3333333,129.421762 83.3333333,83.375 L250,83.375 Z" id="Fill-1-Copy" fill-opacity="0.5" fill="#E6332A" transform="translate(166.666667, 125.062500) scale(-1, 1) rotate(180.000000) translate(-166.666667, -125.062500) "></path>
+      </g>
+    </g>
+  </g>
+</svg>

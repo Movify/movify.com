@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="{{ craft.app.language|lower }}">
+<head>
+	{% include 'includes/head' %}
+</head>
+<body class="">
+
+	{% include 'includes/header' %}
+
+	<main class="l-main">
+
+		{% block content %}
+			{# This is where the page content is added #}
+		{% endblock %}
+
+	</main>
+
+	{% include 'includes/footer' %}
+
+	<script src="/assets/js/movify.js"></script>
+	<script src="https://maps.googleapis.com/maps/api/js?key={{keys.googleMapApi}}"></script>
+
+</body>
+</html>

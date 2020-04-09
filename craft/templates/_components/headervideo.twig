@@ -1,0 +1,37 @@
+
+{# Default #}
+
+{% set defaults = {
+  title:block.headerTitle,
+  videoDesktop:block.headerVideoDesktop,
+  videoMobile:block.headerVideoMobile,
+} %}
+
+
+<div class="c-header-video u-under-header">
+  <div class="container c-header-video__content">
+    <div class="row h-100">
+      <div class="col-12 col-md-10 align-self-center">
+        <h1>
+          {{options.title}}
+        </h1>
+      </div>
+    </div>
+  </div>
+  <div class="c-header-video__video">
+    <div class="d-none d-md-block">
+      <video preload="auto" autoplay="" loop="" muted="" playsinline="" type="video/mp4">
+        <source src="{{options.videoDesktop}}" type="video/mp4">
+      </video>
+    </div>
+    <div class="d-block d-md-none">
+      <video preload="auto" autoplay="" loop="" muted="" playsinline="" type="video/mp4">
+        <source src="{{options.videoMobile}}" type="video/mp4">
+      </video>
+    </div>
+  </div>
+</div>
+
+
+
+{% set options = null %}

@@ -1,0 +1,29 @@
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+
+$prefix:$component;
+
+
+.#{$prefix}-map{
+  height:50rem;
+  position: relative;
+  &__map{
+    height: 100%;
+  }
+  &__list{
+    position: absolute;
+    z-index: 99999;
+    top:5rem;
+    left:0rem;
+    padding: 2rem;
+    background: $c-white;
+    border-radius: $border-radius-2;
+    box-shadow: $box-shadow-default;
+    cursor: pointer;
+    list-style: none;
+    li{
+      @include rfs(1.8rem);
+    }
+  }
+}

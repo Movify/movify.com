@@ -1,0 +1,91 @@
+
+{# Default #}
+
+{% set defaults = {
+  title:'',
+  numbers:'',
+  background: block.headerBackground,
+} %}
+
+{# -- Merge Default with Options -- #}
+{% set options = options ? defaults|merge(options) : defaults %}
+
+{% set transformLarge = {
+  mode: 'crop',
+  width: 2650,
+  height: 900,
+  quality: 90,
+  position: 'focalPoint'
+} %}
+{% set transformMedium = {
+  mode: 'crop',
+  width: 1024,
+  height: 400,
+  quality: 90,
+  position: 'focalPoint'
+} %}
+{% set transformSmall = {
+  mode: 'crop',
+  width: 640,
+  height: 900,
+  quality: 90,
+  position: 'focalPoint'
+} %}
+{% set image = options.background.one() %}
+{% if image %}
+    {% set headerBackgroundLarge = image.getUrl(transformLarge) %}
+    {% set headerBackgroundMedium = image.getUrl(transformMedium) %}
+    {% set headerBackgroundSmall = image.getUrl(transformSmall) %}
+{% endif %}
+
+<div class="c-header-numbers lazyload u-bg-cc u-bg-cover u-under-header"
+{% if block.headerBackground is not empty %}
+ data-bgset="{{headerBackgroundSmall}} [--small] | {{headerBackgroundMedium}} [--medium] | {{headerBackgroundLarge}}"
+{% endif %}>
+  <div class="container c-header-numbers__container">
+    <div class="row align-items-center justify-content-center h-100">
+      <div class="col-12 col-md-9 col-lg-10">
+        <div class="row">
+          <div class="col-12">
+            <h1>
+              {{options.title}}
+            </h1>
+          </div>
+        </div>
+        <div class="row justify-content-center">
+          {% for row in options.numbers.all() %}
+              <div class="col-12 col-md-auto">
+                <div class="c-header-numbers__number">
+                  <h2>
+                    {{ row.number }}
+                  </h2>
+                  <p>
+                    {{ row.label }}
+                  </p>
+                </div>
+              </div>
+          {% endfor %}
+        </div>
+        <div class="e-spacer-3"></div>
+        {% if block.button is not empty %}
+          <div class="row">
+            <div class="col">
+              {# button #}
+              {% set buttonOptions = {
+                content: block.button.getText(),
+                url: block.button.getUrl(),
+                center: true,
+                full: false,
+                negative: true,
+              } %}
+              {% include '_elements/button.twig' with { options: buttonOptions } %}
+            </div>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+
+
+{% set options = null %}

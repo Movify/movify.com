@@ -1,0 +1,40 @@
+/* ==========================================================================
+   Forms/select
+   ========================================================================== */
+
+
+select{
+  display: block;
+  width: 100%;
+  height: $input-height;
+  padding: 0 1.2rem;
+  outline: 0;
+  box-shadow: none;
+  background: $c-white;
+  border: $border-2;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -webkit-border-radius: 0px;
+  @include responsive-font-size($input-font-size);
+  &:focus{
+    outline: 0;
+    border: $border-2 solid $c-gray4;
+  }
+}
+
+.form-select{
+  position: relative;
+  &::after{
+    content:'expand_more';
+    position: absolute;
+    top:0px;
+    right: 0px;
+    height: $input-height;
+    padding: 0 1rem;
+    display: block;
+    font-family: 'Material Icons';
+    font-size: 2rem;
+    line-height: $input-height;
+    pointer-events: none;
+  }
+}

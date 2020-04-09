@@ -1,0 +1,57 @@
+
+{# Default #}
+
+{% set defaults = {
+  title:'title',
+  icons: '',
+} %}
+
+{# -- Merge Default with Options -- #}
+{% set options = options ? defaults|merge(options) : defaults %}
+
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h2>
+        {{options.title}}
+      </h2>
+    </div>
+  </div>
+  <div class="row">
+    {% for block in options.icons.all() %}
+      {% if block.type == "numbers" %}
+      <div class="col-12 col-md">
+        {# numbers #}
+        {% set icon = block.icon.one() %}
+        {% if icon %}
+            {% set icon = icon.url %}
+        {% endif %}
+        {% set numbersOptions = {
+          title:block.label,
+          nummer:block.number,
+          iconUrl:icon,
+          type:'numbers',
+        } %}
+        {% include '_elements/numbers.twig' with { options: numbersOptions } %}
+      </div>
+      {% elseif block.type == "contentIcons" %}
+      <div class="col-12 col-md">
+        {# content #}
+        {% set icon = block.icon.one() %}
+        {% if icon %}
+            {% set icon = icon.url %}
+        {% endif %}
+        {% set iconOptions = {
+          content:block.contentIcon,
+          iconUrl:icon,
+          type:'content',
+        } %}
+        {% include '_elements/icon.twig' with { options: iconOptions } %}
+      </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+</div>
+
+
+{% set options = null %}

@@ -1,0 +1,27 @@
+
+{# Default #}
+
+{% set defaults = {
+  items: block.expand,
+} %}
+
+{# -- Merge Default with Options -- #}
+{% set options = options ? defaults|merge(options) : defaults %}
+
+<div class="c-expand" data-expand-active-item="-1">
+  <div class="c-expand__items">
+    {% for block in options.items.all() %}
+      <div class="c-expand__item">
+        <div class="c-expand__item__selector">
+          {{block.itemTitle}}
+          <span class="icon"></span>
+        </div>
+        <div class="c-expand__item__content">
+          {{block.itemContent}}
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+{% set options = null %}

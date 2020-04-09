@@ -1,0 +1,62 @@
+
+{# Default #}
+
+{% set defaults = {
+  title: 'title',
+  quote: 'We have an infectious energy that sparks a curiosity to explore the new and undiscovered.',
+  member: 'dzddzed',
+  button: '',
+} %}
+
+{# -- Merge Default with Options -- #}
+{% set options = options ? defaults|merge(options) : defaults %}
+
+<div class="c-hotnews decoration__section">
+  <div class="e-spacer-section"></div>
+  <div class="container">
+    <div class="row justify-content-center justify-content-md-start">
+      <div class="col-10 col-md-6 offset-md-5 offset-lg-6">
+        <div class="c-hotnews__content">
+          <h2>{{options.title}}</h2>
+          <div class="e-spacer-3"></div>
+        </div>
+      </div>
+      <div class="col-10 col-md-4 col-xl-3 offset-lg-1">
+        {% set relatedEntries = options.member.all() %}
+          {% if relatedEntries|length %}
+            {% for rel in relatedEntries %}
+              {# card #}
+              {% set position = rel.memberPosition.one() %}
+              {% set profile = rel.memberImage.one() %}
+              {% set cardOptions = {
+                name:rel.title,
+                position:position.title,
+                image: profile,
+                type:'profile',
+              } %}
+              {% include '_elements/card.twig' with { options: cardOptions } %}
+            {% endfor %}
+        {% endif %}
+      </div>
+      <div class="col-10 col-md-7 col-lg-6 offset-md-1">
+        <div class="c-hotnews__content">
+          <blockquote>
+              {{options.quote}}
+          </blockquote>
+          {% if options.button %}
+          {# button #}
+          {% set buttonOptions = {
+            content: options.button.getText(),
+            url: options.button.getUrl(),
+          } %}
+          {% include '_elements/button.twig' with { options: buttonOptions } %}
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="c-hotnews__decoration">
+  </div>
+</div>
+
+{% set options = null %}

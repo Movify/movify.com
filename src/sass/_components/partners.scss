@@ -1,0 +1,35 @@
+/* ==========================================================================
+   Slider Content
+   ========================================================================== */
+
+$prefix:$component;
+
+.#{$prefix}-partners{
+  img{
+    display: block;
+    width: 100%;
+    margin:2rem auto;
+  }
+  a{
+    transition: $default-transition;
+    &:hover{
+      opacity: .4;
+    }
+  }
+}
+
+
+// MEDIUM-UP
+
+@include media-breakpoint-up(md){
+
+.#{$prefix}-partners{
+  img{
+    display: block;
+    width: 60%;
+    margin:3rem auto;
+  }
+}
+
+
+}

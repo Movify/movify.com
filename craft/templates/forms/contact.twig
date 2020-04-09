@@ -1,0 +1,21 @@
+
+
+{# Default #}
+
+{% set defaults = {
+  formId:'',
+} %}
+
+{# -- Merge Default with Options -- #}
+{% set options = options ? defaults|merge(options) : defaults %}
+
+{% set form = craft.freeform.form(options.formId) %}
+
+
+
+{{ form.render({
+  
+})}}
+
+
+{{ form.renderClosingTag }}

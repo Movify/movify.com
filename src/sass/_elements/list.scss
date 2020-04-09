@@ -1,0 +1,65 @@
+/* ==========================================================================
+   linklist
+   ========================================================================== */
+
+$prefix: $element;
+
+
+.#{$prefix}-list-link li{
+  display: block;
+  clear: both;
+  margin-top: 1.5rem;
+}
+.#{$prefix}-list-link li a{
+  @include link-reset;
+  transition: $default-transition;
+  color:$c-brand2;
+  width: 100%;
+  display: block;
+  &::after{
+    content: "\e909";
+    font-family: 'movify' !important;
+    float: right;
+  }
+  &:hover{
+    color:$c-brand1;
+  }
+}
+
+.#{$prefix}-list-social{
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 0;
+  list-style: none;
+  padding-left: 0;
+  li:first-child{
+    margin-left: 0rem;
+  }
+  li a{
+    @include link-reset;
+    transition: $default-transition;
+    &:hover span{
+      color: $c-brand1;
+    }
+  }
+  li a span{
+    font-size: 2rem;
+    color:$c-brand2;
+    transition: $default-transition;
+  }
+  &--negative li a span{
+    color:$c-white;
+  }
+  &--left{
+    justify-content: flex-start;
+    li{
+      margin-right: 1.5rem;
+    }
+  }
+}
+
+@include media-breakpoint-up(md){
+
+
+
+}

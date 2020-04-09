@@ -1,0 +1,49 @@
+/* ==========================================================================
+   Background
+   ========================================================================== */
+
+$prefix: $utility ;
+
+.#{$prefix}-bg-black{
+  background: $c-black;
+}
+.#{$prefix}-bg-white{
+  background: $c-white;
+}
+
+.#{$prefix}-bg-brand1{
+  background: $c-brand1;
+}
+.#{$prefix}-bg-brand2{
+  background: $c-brand2;
+}
+
+.#{$prefix}-bg-gray1{
+  background: $c-gray1;
+}
+.#{$prefix}-bg-gray2{
+  background: $c-gray2;
+}
+.#{$prefix}-bg-gray3{
+  background: $c-gray3;
+}
+.#{$prefix}-bg-gray4{
+  background: $c-gray4;
+}
+.#{$prefix}-bg-gray5{
+  background: $c-gray5;
+}
+
+.#{$prefix}-bg-alert{
+  background: $c-alert;
+}
+.#{$prefix}-bg-success{
+  background: $c-success;
+}
+
+.#{$prefix}-bg-cover{
+  background-size: cover;
+}
+.#{$prefix}-bg-cc{
+  background-position: center center;
+}

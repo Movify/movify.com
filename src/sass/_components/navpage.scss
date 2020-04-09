@@ -1,0 +1,53 @@
+/* ==========================================================================
+   Navpage
+   ========================================================================== */
+
+$prefix:$component;
+.#{$prefix}-nav-page{
+  padding-top:2rem;
+}
+.#{$prefix}-nav-page__nav__items{
+  list-style: none;
+  display: grid;
+  grid-template-columns: 100%;
+  grid-column-gap: 2rem;
+  @include list-reset;
+}
+.#{$prefix}-nav-page__nav__item a{
+  @include rfs(2rem);
+  @include link-reset;
+  color:$c-white;
+  text-align: center;
+  display: block;
+  padding: 4rem 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 20px 40px 0 rgba(0, 0, 0, 0.35);
+  border-radius: $border-radius-2;
+  background: $c-brand2;
+  transition: $default-transition;
+  &:hover{
+    transform: translateY(-2rem);
+    background: $c-white;
+    color:$c-brand2;
+  }
+}
+.#{$prefix}-nav-page__nav__item--active a{
+  transform: translateY(-2rem);
+  background: $c-white;
+  color:$c-brand2;
+}
+.#{$prefix}-nav-page__item{
+  display: none;
+}
+
+
+// MEDIUM-UP
+
+@include media-breakpoint-up(md){
+
+.#{$prefix}-nav-page__nav__items{
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  grid-column-gap: 2rem;
+}
+
+}

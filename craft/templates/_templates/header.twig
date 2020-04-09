@@ -1,0 +1,65 @@
+
+
+
+{% for block in entry.header.level(1).all() %}
+
+
+{% switch block.type.handle %}
+
+{# SLIDERS #}
+
+
+{# header video #}
+{% case 'headerVideo' %}
+
+<section>
+  {% for block in block.headerVideo.all() %}
+    {% set videoDesktop = block.headerVideoDesktop.one() %}
+    {% if videoDesktop %}
+      {% set videoDesktop = videoDesktop.url %}
+    {% endif %}
+    {% set videoMobile = block.headerVideoMobile.one() %}
+    {% if videoMobile %}
+      {% set videoMobile = videoMobile.url %}
+    {% endif %}
+    {# headerNumbers #}
+    {% set headerVideoOptions = {
+      title:block.headerTitle,
+      videoDesktop:videoDesktop,
+      videoMobile:videoMobile,
+    } %}
+    {% include '_components/headervideo.twig' with { options: headerVideoOptions } %}
+  {% endfor %}
+</section>
+
+{# header video #}
+{% case 'headerContent' %}
+
+{% for block in block.headerContent.all() %}
+	{% set headerContentOptions = {
+		title:block.headerTitle,
+		content:block.headerContent,
+		background:block.headerBackground,
+	} %}
+	{% include '_components/headercontent.twig' with { options: headerContentOptions } %}
+{% endfor %}
+{# header numbers #}
+{% case 'headerNumbers' %}
+
+<section>
+{% for block in block.headerNumbers.all() %}
+  {# headerNumbers #}
+  {% set headernumbersOptions = {
+    title:block.headerTitle,
+    numbers:block.headerNumbers,
+    button:block.headerNumbers,
+  } %}
+  {% include '_components/headernumbers.twig' with { options: headernumbersOptions } %}
+
+{% endfor %}
+</section>
+
+
+
+{% endswitch %}
+{% endfor %}

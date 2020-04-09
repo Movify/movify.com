@@ -1,0 +1,69 @@
+/* ==========================================================================
+   Forms/input-text
+   ========================================================================== */
+
+input[type="text"], input[type="password"], input[type="search"], input[type="email"]{
+ display: block;
+ width: 100%;
+ padding: 0 1.2rem;
+ height: $input-height;
+ border: .2rem;
+ transform: .3s;
+ border-radius: $border-radius-2;
+ background: $c-gray1;
+ @include responsive-font-size($input-font-size);
+ &:focus{
+   color: $c-black;
+   outline: 0;
+   border: $border-1 solid $c-gray3;
+ }
+ &:disabled{
+   opacity: .6;
+   cursor: not-allowed;
+ }
+}
+
+.#{$prefix}-input-info{
+  display: flex;
+  input{
+    border-radius: $border-radius-2 0 0 $border-radius-2;
+  }
+  span{
+    flex: 0 0 auto;
+    background: $c-white;
+    color:$c-brand2;
+    padding: .5rem 1rem;
+    border-radius: 0 $border-radius-2 $border-radius-2 0;
+    i{
+      font-size: 1.8rem;
+      line-height: 1.8em;
+    }
+    p{
+      font-size: 1.5rem;
+      line-height: 1.8em;
+      margin: 0;
+      justify-content: center;
+      text-align: center;
+    }
+  }
+}
+
+.#{$prefix}-input-text-sucess{
+ border-bottom: $border-2 solid $c-success;
+
+}
+.#{$prefix}-input-text-alert{
+ border-bottom: $border-2 solid $c-alert;
+}
+
+// NEGATIVE
+
+.#{$negative}{
+
+input[type="text"], input[type="password"], input[type="search"], input[type="email"]{
+  &:focus{
+    border: $c-brand1 solid $border-1;
+  }
+}
+
+}

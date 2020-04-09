@@ -1,0 +1,86 @@
+/* ==========================================================================
+   Link
+   ========================================================================== */
+
+$prefix: $element;
+
+.#{$prefix}-link{
+  transition: $default-transition;
+  text-decoration: underline;
+  color:$c-brand1;
+  @include link-reset;
+  &:hover{
+    color:$c-brand1;
+  }
+}
+
+.#{$prefix}-linktext{
+  transition: $default-transition;
+  text-decoration: underline;
+  color:$c-brand2;
+  display: inline-block;
+  width: auto;
+  @include link-reset;
+  &:hover{
+    color:$c-brand1;
+  }
+  &::after{
+    content:'';
+    width:50%;
+    height: $border-2;
+    background: $c-brand2;
+    display: block;
+    border-radius: $border-2;
+    margin: .5rem auto;
+    transition: $default-transition;
+  }
+  &:hover{
+    &::after{
+      width:100%;
+      background: $c-brand1;
+    }
+  }
+}
+
+// NEGATIVE
+
+.#{$negative}{
+
+.#{$prefix}-link{
+  color:$c-white;
+  text-decoration: underline;
+  transition: $default-transition;
+  &:hover{
+    color:$c-brand1;
+  }
+}
+
+.#{$prefix}-linktext{
+  color:$c-white;
+  &::after{
+    content:'';
+    width:50%;
+    height: $border-2;
+    background: $c-white;
+    display: block;
+    border-radius: $border-2;
+    margin: .5rem auto;
+    transition: $default-transition;
+  }
+  &:hover{
+    color:$c-white;
+    &::after{
+      width:100%;
+      background: $c-white;
+    }
+  }
+}
+
+}
+
+
+@include media-breakpoint-up(md){
+
+
+
+}

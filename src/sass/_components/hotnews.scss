@@ -1,0 +1,134 @@
+/* ==========================================================================
+   Hot news
+   ========================================================================== */
+
+$prefix:$component;
+
+.#{$prefix}-hotnews{
+  color:$c-white;
+  overflow: hidden;
+  padding-bottom: 10rem;
+  position: relative;
+}
+
+.#{$prefix}-hotnews__content{
+  blockquote{
+    font-weight: $f-bold;
+    line-height: 1.4em;
+    margin-bottom: 3rem;
+    margin-top: 4rem;
+    color:$c-white;
+    border: 0;
+    font-style: normal;
+    @include responsive-font-size(3.5rem);
+    &::before{
+      content: "“";
+      position: absolute;
+      margin-top: -2.5rem;
+    }
+    &::after{
+      content: "“";
+      position: absolute;
+      margin-top: 3rem;
+      margin-left: 1rem;
+    }
+  }
+}
+
+.#{$prefix}-hotnews__decoration{
+  position: absolute;
+  top:0;
+  height: 100%;
+  width: 100%;
+  z-index: -2;
+  pointer-events: none;
+  &::before, &::after{
+    content:"";
+    display: block;
+    position: absolute;
+    background: $c-brand1;
+    height: 50%;
+    width: 200rem;
+  }
+  &::before{
+    height: 95%;
+    width: 200rem;
+    left: -5%;
+    top: 0rem;
+    border-radius: 20rem;
+  }
+}
+
+// SM-UP
+
+@include media-breakpoint-up(sm){
+
+.#{$prefix}-hotnews__decoration{
+  max-width: $container-width;
+  padding: 0 $gutter;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  &::before{
+    height: 100%;
+    width: 200rem;
+    left: 1rem;
+    top: -10rem;
+    border-radius: 0rem;
+    border-bottom-left-radius: 30rem;
+  }
+  &::after{
+    display: none;
+  }
+}
+
+}
+
+// MEDIUM-UP
+
+@include media-breakpoint-up(md){
+
+.#{$prefix}-hotnews{
+  padding-bottom: 40rem;
+}
+
+.#{$prefix}-hotnews__content blockquote{
+  margin-top: 3rem;
+  &::before{
+    content: "“";
+    margin-left: -2rem;
+  }
+  &::after{
+    content: "“";
+  }
+}
+
+.#{$prefix}-hotnews__decoration{
+
+  &::before{
+    left: 29%;
+  }
+  &::after{
+
+  }
+}
+
+}
+
+
+// MEDIUM-UP
+
+@include media-breakpoint-up(lg){
+
+.#{$prefix}-hotnews__decoration{
+
+  &::before{
+    left: 24%;
+  }
+  &::after{
+
+  }
+}
+
+}

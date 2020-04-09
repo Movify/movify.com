@@ -1,0 +1,28 @@
+
+{# Default #}
+
+{% set defaults = {
+  items:false,
+} %}
+
+{# -- Merge Default with Options -- #}
+{% set options = options ? defaults|merge(options) : defaults %}
+
+
+{% if options.items %}
+
+<div class="c-nav-page" data-nav-page-active="staff">
+  <nav class="c-nav-page__nav">
+    <ul class="c-nav-page__nav__items">
+      {% for block in options.items.all() %}
+        <li class="c-nav-page__nav__item" data-nav-page-target="{{block.itemTarget}}">
+          <a href="#{{block.itemTarget}}">{{block.itemLabel}}</a>
+        </li>
+      {% endfor %}
+    </ul>
+  </nav>
+</div>
+
+{% endif %}
+
+{% set options = null %}

@@ -1,0 +1,98 @@
+/* ==========================================================================
+   Blocs
+   ========================================================================== */
+
+$prefix:$component;
+
+.#{$prefix}-blocs{
+  max-width: 1920px;
+  margin: 0 auto;
+}
+
+.#{$prefix}-blocs__bloc{
+  display: grid;
+  grid-template-row: 100% 100%;
+}
+
+.#{$prefix}-blocs__bloc__image{
+  height: 20rem;
+  order:2;
+}
+
+.#{$prefix}-blocs__bloc__content{
+  order:1;
+  display: grid;
+  align-content: center;
+  background: $c-white;
+  padding: 3rem 10%;
+  h2{
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+}
+
+
+
+.#{$prefix}-blocs__bloc__content--red{
+  background: $c-brand1;
+  color:$c-white;
+  p{
+    color:$c-white;
+  }
+  h2{
+    color:$c-brand2;
+  }
+}
+
+.#{$prefix}-blocs__bloc__content--blue{
+  background: $c-brand2;
+  color:$c-white;
+  p{
+    color:$c-white;
+  }
+}
+
+
+.#{$prefix}-blocs__bloc--left{
+  .#{$prefix}-blocs__bloc__content{
+    order:1;
+  }
+  .#{$prefix}-blocs__bloc__image{
+    order:2;
+  }
+}
+
+//NEGATIVE
+
+.#{$negative}{
+
+
+}
+
+// MEDIUM-UP
+
+@include media-breakpoint-up(md){
+
+.#{$prefix}-blocs__bloc{
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+
+.#{$prefix}-blocs__bloc__image{
+  min-height: 60vh;
+}
+
+.#{$prefix}-blocs__bloc__content{
+  padding: 5rem 15%;
+}
+
+.#{$prefix}-blocs__bloc--right{
+  .#{$prefix}-blocs__bloc__content{
+    order:2;
+  }
+  .#{$prefix}-blocs__bloc__image{
+    order:1;
+  }
+}
+
+}

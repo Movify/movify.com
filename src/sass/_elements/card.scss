@@ -1,0 +1,120 @@
+/* ==========================================================================
+   Decoration
+   ========================================================================== */
+
+$prefix: $element;
+
+
+// Card Default
+
+.#{$prefix}-card{
+  border-radius: $border-radius-2;
+  overflow: hidden;
+  background: $c-white;
+  padding: 2rem;
+}
+
+.#{$prefix}-card__img{
+  display: flex;
+  justify-content: center;
+  img{
+    width: auto !important;
+    max-height: 25rem;
+  }
+}
+
+.#{$prefix}-card__content{
+  padding: 1rem;
+  &__title{
+    @include responsive-font-size(2.4rem);
+    font-weight: $f-bold;
+  }
+  &__position{
+    @include responsive-font-size(1.6rem);
+    color:$c-gray2;
+  }
+}
+
+.#{$prefix}-card__content__summary{
+  max-height: 4rem;
+  overflow: hidden;
+  margin-right: -1rem;
+  padding-right: 1rem;
+  position: relative;
+  width: 95%;
+  @include rfs(1.5rem);
+  &::before{
+    content: '...';
+    position: absolute;
+    right: 0;
+    bottom: 0;
+  }
+}
+
+.#{$prefix}-card__cta{
+  margin-bottom: 1rem;
+}
+
+.#{$prefix}-card--highlighted{
+  box-shadow: $box-shadow-default;
+}
+
+.#{$prefix}-card--clickable{
+  cursor: pointer;
+
+}
+
+
+// Card Profile
+
+.#{$prefix}-card--profile{
+  padding: 0rem;
+}
+
+// Card Cta
+
+.#{$prefix}-card--cta{
+  position: relative;
+  text-align: center;
+}
+
+.#{$prefix}-card__logo{
+  img{
+    display: block;
+    @include relative-center;
+    width: 100%;
+  }
+}
+.#{$prefix}-card__intro{
+  margin: 3rem 0rem ;
+  p{
+    @include rfs(2.5rem);
+    font-weight: $f-bold;
+  }
+}
+
+// Card Article
+
+.#{$prefix}-card--article{
+  padding: 0rem;
+  text-align: center;
+}
+
+
+// MEDIUM-UP
+
+@include media-breakpoint-up(md){
+
+
+.#{$prefix}-card__content{
+  padding: 1rem 1rem;
+}
+
+.#{$prefix}-card__img{
+  img{
+    max-height: 25rem;
+  }
+}
+
+
+}

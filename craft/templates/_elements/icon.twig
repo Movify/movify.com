@@ -1,0 +1,44 @@
+
+{# Default #}
+
+{% set defaults = {
+  title:'Cups of coffee drank this month',
+  nummer:'200',
+  iconUrl:'/assets/img/icons/coffee-icon.svg',
+} %}
+
+{# -- Merge Default with Options -- #}
+{% set options = options ? defaults|merge(options) : defaults %}
+
+{% if options.type == "numbers" %}
+<div class="e-numbers">
+  <div class="e-numbers__img">
+    <img src="{{options.iconUrl}}" alt="">
+  </div>
+  <div class="e-numbers__nummer">
+    <span>
+      {{options.nummer}}
+    </span>
+  </div>
+  <div class="e-numbers__title">
+    <span>
+      {{options.title | raw }}
+    </span>
+  </div>
+</div>
+{% endif %}
+
+{% if options.type == "content" %}
+<div class="e-numbers">
+  <div class="e-numbers__img">
+    <img src="{{options.iconUrl}}" alt="">
+  </div>
+  <div class="e-numbers__content">
+    <span>
+      {{options.content | raw }}
+    </span>
+  </div>
+</div>
+{% endif %}
+
+{% set options = null %}

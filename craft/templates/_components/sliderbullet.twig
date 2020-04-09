@@ -1,0 +1,55 @@
+
+{# Default #}
+
+{% set defaults = {
+  title:'',
+  items:'',
+  active:'0',
+  btn:''
+} %}
+
+{# -- Merge Default with Options -- #}
+{% set options = options ? defaults|merge(options) : defaults %}
+
+<div class="c-sliderbullet" data-sliderbullet-active-item="{{options.active}}">
+  <div class="row justify-content-center">
+    {% if options.title == true %}
+      <div class="col-12">
+        <h2 class="c-sliderbullet__title">{{options.title}}</h2>
+        <div class="e-spacer-3"></div>
+      </div>
+    {% endif %}
+    <div class="col-12 col-md-6 col-xl-4">
+      <div class="c-sliderbullet__items">
+        {% for block in options.items.all() %}
+          <div class="c-sliderbullet__item">
+              <span>{{block.titleItem}}</span>
+              <div class="c-sliderbullet__item__expand d-md-none"></div>
+              <div class="c-sliderbullet__item__content d-md-none">
+                {{block.contentItem}}
+              </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+    <div class="col-12 col-md-6 col-xl-6 d-none d-md-block">
+      <div class="c-sliderbullet__contentdesktop">
+      </div>
+    </div>
+    {% if options.button != '' %}
+      <div class="col-12">
+        <div class="e-spacer-2"></div>
+        {# button #}
+        {% set buttonOptions = {
+          content: options.button.getText(),
+          url: options.button.getUrl(),
+          center: true,
+        } %}
+        {% include '_elements/button.twig' with { options: buttonOptions } %}
+      </div>
+    {% endif %}
+  </div>
+</div>
+
+
+{% set options = null %}

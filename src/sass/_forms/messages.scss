@@ -1,0 +1,15 @@
+/* ==========================================================================
+   Forms/messages
+   ========================================================================== */
+
+.#{$prefix}-text{
+ margin-top: 1rem;
+ color: $c-gray4;
+ display: inline-block;
+}
+.#{$prefix}-text--alert{
+ color: $c-alert;
+}
+.#{$prefix}-text--success{
+ color: $c-success;
+}
